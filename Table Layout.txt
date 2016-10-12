@@ -1,0 +1,65 @@
+Team Table
+----------
+Id = Int PK auto_inc
+Division = Varchar(30)
+TeamName = Varchar(40)
+Wins = Int
+Losses = Int
+Ties = Int
+
+OvrRank = Int ***
+
+Offensive Players Table
+----------------------
+Id = Int PK auto_inc
+FirstName = Varchar(30)
+LastName = Varchar(30)
+Suffix = Varchar(5)
+TeamId = Int FK
+Position = Varchar(30)
+OffRanking = Int
+
+Defensive Teams Table
+----------------------
+Id = Int PK auto_inc
+TeamId = Int FK
+DefRanking = Int
+
+Defensive Stats Table
+----------------------
+Id = Int PK auto_inc
+YardsAllowed = Int
+DefenseId = Int FK
+Tackles = Int
+Sacks = Int
+FumbleRcvry = Int
+Safety = Int
+
+Offensive Stats Table
+---------------------
+Id = Int PK auto_inc
+PlayerId = Int FK
+TotalYards = Int 
+PassAttempts = Int
+PassYards = Int
+Receptions = Int
+RecYards = Int
+RushAttempts = Int
+RushYards = Int
+Touchdowns = Int
+FieldGoals = Int
+
+Matchups
+--------
+Id = Int PK auto_inc
+Week = Int
+HomeTeamId = Int FK
+AwayTeamId = Int FK
+
+Game Results Table
+------------------
+Id = Int PK auto_inc
+MatchupId = Int FK
+WinTeamId = Int FK
+LoseTeamId = Int FK
+Tie = boolean
