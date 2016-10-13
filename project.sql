@@ -12,50 +12,49 @@ Create table team (
 id int primary key auto_increment,
 division varchar(30),
 teamName varchar(40),
+abrev varchar(3),
 wins int,
 losses int,
 ties int,
 ovrRank int
 );
 
-INSERT into team (division, TeamName) values (NFC West, Arizona Cardinals);
-INSERT into team (division, TeamName) values (NFC South, Atlanta Falcons);
-INSERT into team (division, TeamName) values (AFC North, Baltimore Ravens);
-INSERT into team (division, TeamName) values (AFC East, Buffalo Bills);
-INSERT into team (division, TeamName) values (NFC South, Carolina Panthers);
-INSERT into team (division, TeamName) values (NFC North, Chicago Bears);
-INSERT into team (division, TeamName) values (AFC North, Cincinatti Bengals);
-INSERT into team (division, TeamName) values (AFC North, Cleveland Browns);
-INSERT into team (division, TeamName) values (NFC East, Dallas Cowboys);
-INSERT into team (division, TeamName) values (AFC West, Denver Broncos);
-INSERT into team (division, TeamName) values (NFC North, Detroit Lions);
-INSERT into team (division, TeamName) values (NFC North, Green Bay Packers);
-INSERT into team (division, TeamName) values (AFC South, Houston Texans);
-INSERT into team (division, TeamName) values (AFC South, Indianapolis Colts);
-INSERT into team (division, TeamName) values (AFC South, Jacksonville Jaguars);
-INSERT into team (division, TeamName) values (AFC West, Kansas City Chiefs);
-INSERT into team (division, TeamName) values (NFC West, Los Angeles Rams);
-INSERT into team (division, TeamName) values (AFC East, Miami Dolphins);
-INSERT into team (division, TeamName) values (NFC North, Minnesota Vikings);
-INSERT into team (division, TeamName) values (AFC East, New England Patriots);
-INSERT into team (division, TeamName) values (NFC South, New Orleans Saints);
-INSERT into team (division, TeamName) values (NFC East, New York Giants);
-INSERT into team (division, TeamName) values (AFC East, New York Jets);
-INSERT into team (division, TeamName) values (AFC South, Oakland Raiders);
-INSERT into team (division, TeamName) values (NFC East, Philadelphia Eagles);
-INSERT into team (division, TeamName) values (AFC North, Pittsburgh Steelers);
-INSERT into team (division, TeamName) values (AFC West, San Diego Chargers);
-INSERT into team (division, TeamName) values (NFC West, San Francisco 49ers);
-INSERT into team (division, TeamName) values (NFC West, Seattle Seahawks);
-INSERT into team (division, TeamName) values (NFC South, Tampa Bay Buccaneers);
-INSERT into team (division, TeamName) values (AFC South, Tennessee Titans);
-INSERT into team (division, TeamName) values (NFC East, Washington Redskins);
+INSERT into team (division, TeamName, abrev) values ('NFC West', 'Arizona Cardinals', 'ARI');
+INSERT into team (division, TeamName, abrev) values ('NFC South', 'Atlanta Falcons', 'ATL');
+INSERT into team (division, TeamName, abrev) values ('AFC North', 'Baltimore Ravens', 'BAL');
+INSERT into team (division, TeamName, abrev) values ('AFC East', 'Buffalo Bills', 'BUF');
+INSERT into team (division, TeamName, abrev) values ('NFC South', 'Carolina Panthers', 'CAR');
+INSERT into team (division, TeamName, abrev) values ('NFC North', 'Chicago Bears', 'CHI');
+INSERT into team (division, TeamName, abrev) values ('AFC North', 'Cincinatti Bengals', 'CIN');
+INSERT into team (division, TeamName, abrev) values ('AFC North', 'Cleveland Browns', 'CLE');
+INSERT into team (division, TeamName, abrev) values ('NFC East', 'Dallas Cowboys', 'DAL');
+INSERT into team (division, TeamName, abrev) values ('AFC West', 'Denver Broncos', 'DEN');
+INSERT into team (division, TeamName, abrev) values ('NFC North', 'Detroit Lions', 'DET');
+INSERT into team (division, TeamName, abrev) values ('NFC North', 'Green Bay Packers', 'GB');
+INSERT into team (division, TeamName, abrev) values ('AFC South', 'Houston Texans', 'HOU');
+INSERT into team (division, TeamName, abrev) values ('AFC South', 'Indianapolis Colts', 'IND');
+INSERT into team (division, TeamName, abrev) values ('AFC South', 'Jacksonville Jaguars', 'JAX');
+INSERT into team (division, TeamName, abrev) values ('AFC West', 'Kansas City Chiefs', 'KC');
+INSERT into team (division, TeamName, abrev) values ('NFC West', 'Los Angeles Rams', 'LA');
+INSERT into team (division, TeamName, abrev) values ('AFC East', 'Miami Dolphins', 'MIA');
+INSERT into team (division, TeamName, abrev) values ('NFC North', 'Minnesota Vikings', 'MIN');
+INSERT into team (division, TeamName, abrev) values ('AFC East', 'New England Patriots', 'NE');
+INSERT into team (division, TeamName, abrev) values ('NFC South', 'New Orleans Saints', 'NO');
+INSERT into team (division, TeamName, abrev) values ('NFC East', 'New York Giants', 'NYG');
+INSERT into team (division, TeamName, abrev) values ('AFC East', 'New York Jets', 'NYJ');
+INSERT into team (division, TeamName, abrev) values ('AFC South', 'Oakland Raiders', 'OAK');
+INSERT into team (division, TeamName, abrev) values ('NFC East', 'Philadelphia Eagles', 'PHI');
+INSERT into team (division, TeamName, abrev) values ('AFC North', 'Pittsburgh Steelers', 'PIT');
+INSERT into team (division, TeamName, abrev) values ('AFC West', 'San Diego Chargers', 'SD');
+INSERT into team (division, TeamName, abrev) values ('NFC West', 'San Francisco 49ers', 'SF');
+INSERT into team (division, TeamName, abrev) values ('NFC West', 'Seattle Seahawks', 'SEA');
+INSERT into team (division, TeamName, abrev) values ('NFC South', 'Tampa Bay Buccaneers', 'TB');
+INSERT into team (division, TeamName, abrev) values ('AFC South', 'Tennessee Titans', 'TEN');
+INSERT into team (division, TeamName, abrev) values ('NFC East', 'Washington Redskins', 'WAS');
 
 Create table offensive_player (
 id int primary key auto_increment,
-firstName varchar(30),
-lastName varchar(30),
-suffix varchar(5),
+playerName varchar(40),
 teamId int,
 position varchar(30),
 offRanking int,
