@@ -1,0 +1,44 @@
+.table{
+  width:70%;
+  margin-left:15%;
+  margin-right:15%;
+  border: 4px solid grey;
+}
+#curr_week{
+  display: inline-block;
+  margin: 0 auto;
+  border: 2px solid black;
+}
+#updWeek{
+  text-align: center;
+  margin: 0 auto;
+  display: inline-block;
+  border: 1px solid blue;
+}
+#week{ 
+  text-align: center;
+}
+#hometm, #awaytm {
+  text-align: center;
+  font-weight: bold;
+  text-decoration: underline;
+}
+#paragraphs {
+  background-color: gainsboro;
+  font-variant: small-caps;
+  font-style: bold;
+  
+  width:555px;
+
+  font-size: 28
+
+}
+
+
+
+
+
+background-img {
+    opacity: 0.5;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
+}
