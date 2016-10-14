@@ -1,12 +1,12 @@
 <div id="weekPage">
 <div id="week">
 	<input id="curr_week" type="number" ng-value="ctrl.week" min="1" max="17"></input>
-	<button id="updWeek" class="btn btn-primary" ng-click="ctrl.updWeek()">Refresh</button>
+	<button id="updWeek" class="btn btn-info w3-text-black" ng-click="ctrl.updWeek()"><strong>Refresh</strong></button>
 </div>
 <br />
 	<div id="games-table-div">
 		<table id ="weekTbl" class="table table-striped table-bordered table-condensed table-hover w3-card-16 w3-table-all">
-			<tr>
+			<tr class="w3-large">
 				<th>Game</th>
 				<th>Score</th>
 			</tr>
@@ -16,4 +16,12 @@
 			</tr>
 		</table>
 	</div>
+	<div id="weekFoot" class="footer">
+				<i class="icon ion-ios-americanfootball w3-large"></i>
+					<strong>All You Need To Know About Fantasy Football!</strong>
+					<i class="icon ion-ios-americanfootball w3-large"></i>
+					<p><i class="icon ion-ios-americanfootball-outline w3-large"></i>
+					By Joshua Franey, Gabriel Hamiltion, Joe Hill, and Evan Tizard
+				<i class="icon ion-ios-americanfootball-outline w3-large"></i></p>
+		</div>
 </div>
