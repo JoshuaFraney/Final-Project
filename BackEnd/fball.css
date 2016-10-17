@@ -72,3 +72,56 @@
     left: 50%;
 }
 
+#teamred {
+  color: cyan;
+}
+
+#home, #by-week, #players, #about {
+
+}
+
+#mainbody li a:hover:not(.active) {
+  background-color: #555;
+  color: #00FF00;
+}
+
+#vert-navbar{
+
+}
+
+#vert-navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 15%;
+    background-color: #00FFFF;
+    height: 100%; /* Full height */
+    position: fixed; /* Make it stick, even on scroll */
+    overflow: auto; /* Enable scrolling if the sidenav has too much content */
+}
+
+#vert-navbar li a {
+    display: block;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+#vert-navbar li a.active {
+    background-color: #000000;
+    color: cyan;
+}
+
+#vert-navbar li a:hover:not(.active) {
+    background-color: #555;
+    color: #00FF00;
+}
+
+#vert-navbar li {
+    text-align: center;
+    border-bottom: 1px solid #555;
+}
+
+#vert-navbar li:last-child {
+    border-bottom: none;
+}

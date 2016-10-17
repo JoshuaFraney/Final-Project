@@ -31,6 +31,11 @@ mod.config(['$routeProvider', function($routeProvider) {
 		templateUrl: 'views/dontplay.view.html',
 		controller: 'dontplayCtrl',
 		controllerAs: 'ctrl'
+
+	}).when('/compare',{
+		templateUrl: 'views/compare.view.html',
+		controller: 'compareCtrl',
+		controllerAs: 'ctrl'
 	})
 
 	.otherwise({redirectTo: '/'});

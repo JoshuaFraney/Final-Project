@@ -27,7 +27,7 @@
 		<nav class="navbar navbar-inverse">
 			<div class="container-fluid">
 				<div class="navbar-header w3-padding-12">
-					<a class="navbar-brand w3-padding-12" href="#/">Team Red</a>
+					<a id="teamred" class="navbar-brand w3-padding-12" href="#/">Team Red</a>
 				</div>
 				<ul class="nav navbar-nav w3-border-black w3-large w3-padding-12 w3-hover-border-silver">
 					<li><a id="home" class="active" href="#/">Home</a></li>
@@ -37,6 +37,14 @@
 				</ul>
 			</div>
 	</nav>
+
+	<div id="vert-navbar">
+	<ul class="w3-large w3-hover-border-silver w3-border-black w3-dark-grey">
+  		<li><a id="rccmnd" class="active" href="#/reccommended">Reccommended Players Lineup</a></li>
+ 		<li><a id="not-rccmnd" href="#/dontplay">Not Reccommended Weekly Lineup</a></li>
+ 		<li><a id="compare" href="#/compare">Compare Players</a></li>
+	</ul> 
+	</div>
 		<div ng-view></div>
 		<!-- <div id="footer" class="footer">
 				<i class="icon ion-ios-americanfootball w3-large"></i>
