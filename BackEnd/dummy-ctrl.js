@@ -8,28 +8,7 @@ function PlayersCtrl(Players) {
 
   self.players = Players.all
 
-
-//   self.reverseList = function() {
-//     self.todos.reverse()
-//   }
-//
-//   self.markComplete = function(item) {
-//     item.complete = true
-//   }
-//
-//   self.createItem = function() {
-//     console.log("should save", self.newName)
-//
-//     Items.create(self.newName)
-//
-//     self.newName = ""
-//   }
-// }
-
-
-
-
-
+};
 
 
 
