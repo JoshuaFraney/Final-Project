@@ -1,0 +1,105 @@
+<div>
+	<p id="hometm" font-color="white" class="w3-xxlarge w3-text-sand" ng-bind="ctrl.teams.home"></p>
+	<table id="homeStats" class="table table-striped table-bordered table-condensed table-hover w3-card-16 w3-table-all" id="home-players">
+		<!-- <tr ng-repeat="game in ctrl.games">
+			<td ng-show="game.vis"><span>{{game.away}} @ {{game.home}}</span>
+		</tr> -->
+		<tr class="w3-large">
+			<th>Passing</th>
+			<th>Attempts</th>
+			<th>Yards</th>
+			<th>TD's</th>
+			<th>Interceptions</th>
+		</tr>
+		<tr ng-repeat="homePass in ctrl.homePassing">
+			<td ng-bind="homePass.name"></td>
+			<td>{{homePass.completions}}/{{homePass.attempts}}</td>
+			<td ng-bind="homePass.yards"></td>
+			<td ng-bind="homePass.touchdowns"></td>
+			<td ng-bind="homePass.interceptions"></td>
+		</tr>
+		<tr class="w3-large">
+			<th>Rushing</th>
+			<th>Attempts</th>
+			<th>Yards</th>
+			<th>TD's</th>
+			<th>Long Rush</th>
+		</tr>
+		<tr ng-repeat="homeRush in ctrl.homeRushing">
+			<td ng-bind="homeRush.name"></td>
+			<td ng-bind="homeRush.attempts"></td>
+			<td ng-bind="homeRush.yards"></td>
+			<td ng-bind="homeRush.touchdowns"></td>
+			<td ng-bind="homeRush.long"></td>
+		</tr>
+		<tr class="w3-large">
+			<th>Receiving</th>
+			<th>Receptions</th>
+			<th>Yards</th>
+			<th>TD's</th>
+			<th>Long Reception</th>
+		</tr>
+		<tr ng-repeat="homeRec in ctrl.homeReceiving">
+			<td ng-bind="homeRec.name"></td>
+			<td ng-bind="homeRec.receptions"></td>
+			<td ng-bind="homeRec.yards"></td>
+			<td ng-bind="homeRec.touchdowns"></td>
+			<td ng-bind="homeRec.long"></td>
+		</tr>
+	</table>
+
+	<p id="awaytm" class="w3-xxlarge w3-text-sand" ng-bind="ctrl.teams.away"></p>
+
+	<table id="awayStats" class="table table-striped table-bordered table-condensed table-hover w3-card-16 w3-table-all" id="away-players">
+		<tr class="w3-large">
+			<th>Passing</th>
+			<th>Attempts</th>
+			<th>Yards</th>
+			<th>TD's</th>
+			<th>Interceptions</th>
+		</tr>
+		<tr ng-repeat="awayPass in ctrl.awayPassing">
+			<td ng-bind="awayPass.name"></td>
+			<td>{{awayPass.completions}}/{{awayPass.attempts}}</td>
+			<td ng-bind="awayPass.yards"></td>
+			<td ng-bind="awayPass.touchdowns"></td>
+			<td ng-bind="awayPass.interceptions"></td>
+		</tr>
+		<tr class="w3-large">
+			<th>Rushing</th>
+			<th>Attempts</th>
+			<th>Yards</th>
+			<th>TD's</th>
+			<th>Long Rush</th>
+		</tr>
+		<tr ng-repeat="awayRush in ctrl.awayRushing">
+			<td ng-bind="awayRush.name"></td>
+			<td ng-bind="awayRush.attempts"></td>
+			<td ng-bind="awayRush.yards"></td>
+			<td ng-bind="awayRush.touchdowns"></td>
+			<td ng-bind="awayRush.long"></td>
+		</tr>
+		<tr class="w3-large">
+			<th>Receiving</th>
+			<th>Receptions</th>
+			<th>Yards</th>
+			<th>TD's</th>
+			<th>Long Reception</th>
+		</tr>
+		<tr ng-repeat="awayRec in ctrl.awayReceiving">
+			<td ng-bind="awayRec.name"></td>
+			<td ng-bind="awayRec.receptions"></td>
+			<td ng-bind="awayRec.yards"></td>
+			<td ng-bind="awayRec.touchdowns"></td>
+			<td ng-bind="awayRec.long"></td>
+		</tr>
+	</table>
+<div id="playerFoot" class="footer">
+				<i class="icon ion-ios-americanfootball w3-large"></i>
+					<strong>All You Need To Know About Fantasy Football!</strong>
+					<i class="icon ion-ios-americanfootball w3-large"></i>
+					<p><i class="icon ion-ios-americanfootball-outline w3-large"></i>
+					By Joshua Franey, Gabriel Hamiltion, Joe Hill, and Evan Tizard
+				<i class="icon ion-ios-americanfootball-outline w3-large"></i></p>
+		</div>
+</div>
