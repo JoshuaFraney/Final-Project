@@ -59,3 +59,16 @@
 #games-table-div {
   text-align:center;
 }
+#paragraphs {
+  margin: 0 auto;
+  display:block;
+  text-align:center;
+  background-color: gainsboro;
+  font-variant: small-caps;
+  font-style: bold;
+  width: 450px; 
+  font-size: 28px;
+    top: 50%;
+    left: 50%;
+}
+
