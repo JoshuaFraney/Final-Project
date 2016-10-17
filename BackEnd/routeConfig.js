@@ -13,8 +13,8 @@ mod.config(['$routeProvider', function($routeProvider) {
 		templateUrl: 'views/about.view.html'
 
 	}).when('/player', {
-		templateUrl: 'views/player.view.html',
-		controller: 'playerCtrl',
+		templateUrl: 'views/dummy.view.html',
+		controller: 'PlayersCtrl',
 		controllerAs: 'ctrl'
 
 	}).when('/admin',{
