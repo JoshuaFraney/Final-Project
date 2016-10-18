@@ -133,3 +133,68 @@
 #vert-navbar li:last-child {
     border-bottom: none;
 }
+
+.about_list {
+   /*list-style-image: url('http://www.free-icons-download.net/images/list-icon-88282.png');*/
+   /*width: 50px;
+   height: 50px;
+   */
+    /*content: "\e080";*/
+   /* font-family: 'Glyphicons Halflings';*/
+    font-size: 22px;
+
+    /*float: left;
+    /*margin-top: 4px;
+    margin-left: -17px;*/
+    /*color: #CCCCCC;*/
+
+}
+/*.about_list : before {
+   width: 8px; /* desired width of the image */
+    /*height: 10px; *//* unrelated to image height; this is so it gets snipped */
+/*}*/
+#about_div1 {
+  margin: 0 auto;
+  display:block;
+
+  background-color: gainsboro;
+  font-variant: small-caps;
+  font-style: bold;
+  width: 450px; 
+  font-size: 28px;
+    top: 50%;
+    left: 50%;
+}
+#about_h, #about_h2 {
+  text-align: center;
+  color:white;
+  text-decoration: underline;
+  font-weight: bold;
+  text-shadow:
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
+  font-variant: small-caps;
+    top: 50%;
+    left: 50%;
+
+}
+#about_p {
+  font-size: 36
+}
+ul.a {
+    list-style-type: circle;
+}
+#about_div2 {
+  margin: 0 auto;
+  display:block;
+
+  background-color: gainsboro;
+  font-variant: small-caps;
+  font-style: bold;
+  width: 450px; 
+  font-size: 28px;
+    top: 50%;
+    left: 50%;
+}
