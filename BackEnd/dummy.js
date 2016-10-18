@@ -1,11 +1,11 @@
 // DEFINE the todo module
-var app = angular.module("players", [])
+// var app = angular.module("Players", [])
 
 // app.controller("TodosCtrl", ["$http", function($http) {
   // Logic goes here
 // }])
 
-app.controller("PlayersCtrl", PlayersCtrl)
+mod.controller("PlayersCtrl", PlayersCtrl)
 
 PlayersCtrl.$inject = ["$http"]
 function PlayersCtrl($http) {

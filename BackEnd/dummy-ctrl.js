@@ -1,6 +1,4 @@
-angular
-  .module("players")
-  .controller("PlayersCtrl", PlayersCtrl)
+mod.controller("PlayersCtrl", [])
 
 PlayersCtrl.$inject = ["Players"]
 function PlayersCtrl(Players) {
