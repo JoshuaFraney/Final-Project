@@ -38,7 +38,7 @@
   text-decoration: underline;
   font-color: white;
 }
-#weekFoot {
+#weekFoot, #dummyFoot {
   right: 0;
   bottom: 0;
   left: 0;
@@ -83,10 +83,6 @@
 #mainbody li a:hover:not(.active) {
   background-color: #555;
   color: #00FF00;
-}
-
-#vert-navbar{
-
 }
 
 #vert-navbar ul {
