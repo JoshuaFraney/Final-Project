@@ -27,6 +27,11 @@ mod.config(['$routeProvider', function($routeProvider) {
 		controller: 'adminCtrl',
 		controllerAs: 'ctrl'
 
+	}).when('/playerlist',{
+		templateUrl: 'views/playerlist.view.html',
+		controller: 'PlayerListCtrl',
+		controllerAs: 'ctrl'
+
 	}).when('/reccommended',{
 		templateUrl: 'views/reccommended.view.html',
 		controller: 'reccommendedCtrl',
