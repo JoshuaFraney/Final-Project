@@ -1,0 +1,17 @@
+<div>
+	<input id="curr_week" type="number" ng-value="ctrl.week"></input>
+	<button class="btn btn-primary" ng-click="ctrl.updWeek()">Refresh</button>
+	<div id="games-table-div">
+		<table class="table table-bordered">
+			<tr>
+				<th>Game</th>
+				<th>Score</th>
+			</tr>
+			<tr ng-repeat="game in ctrl.games">
+				<td ng-show="game.vis"><a ng-click="ctrl.showPlayers(game.id)"><span>{{game.away}} @ {{game.home}}</span></a></td>
+				<td ng-show="game.vis"><span>{{game.away_score}} - {{game.home_score}}</span></td>
+			</tr>
+		</table>
+	</div>
+	
+</div>

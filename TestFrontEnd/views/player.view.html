@@ -1,0 +1,93 @@
+<div>
+	<p ng-bind="ctrl.teams.home"></p>
+	<table class="table table-bordered" id="home-players">
+		<tr>
+			<th>Passing</th>
+			<th>Attempts</th>
+			<th>Yards</th>
+			<th>TD's</th>
+			<th>Interceptions</th>
+		</tr>
+		<tr ng-repeat="homePass in ctrl.homePassing">
+			<td ng-bind="homePass.name"></td>
+			<td>{{homePass.completions}}/{{homePass.attempts}}</td>
+			<td ng-bind="homePass.yards"></td>
+			<td ng-bind="homePass.touchdowns"></td>
+			<td ng-bind="homePass.interceptions"></td>
+		</tr>
+		<tr>
+			<th>Rushing</th>
+			<th>Attempts</th>
+			<th>Yards</th>
+			<th>TD's</th>
+			<th>Long Rush</th>
+		</tr>
+		<tr ng-repeat="homeRush in ctrl.homeRushing">
+			<td ng-bind="homeRush.name"></td>
+			<td ng-bind="homeRush.attempts"></td>
+			<td ng-bind="homeRush.yards"></td>
+			<td ng-bind="homeRush.touchdowns"></td>
+			<td ng-bind="homeRush.long"></td>
+		</tr>
+		<tr>
+			<th>Receiving</th>
+			<th>Receptions</th>
+			<th>Yards</th>
+			<th>TD's</th>
+			<th>Long Reception</th>
+		</tr>
+		<tr ng-repeat="homeRec in ctrl.homeReceiving">
+			<td ng-bind="homeRec.name"></td>
+			<td ng-bind="homeRec.receptions"></td>
+			<td ng-bind="homeRec.yards"></td>
+			<td ng-bind="homeRec.touchdowns"></td>
+			<td ng-bind="homeRec.long"></td>
+		</tr>
+	</table>
+	
+	<p ng-bind="ctrl.teams.away"></p>
+	<table class="table table-bordered" id="away-players">
+		<tr>
+			<th>Passing</th>
+			<th>Attempts</th>
+			<th>Yards</th>
+			<th>TD's</th>
+			<th>Interceptions</th>
+		</tr>
+		<tr ng-repeat="awayPass in ctrl.awayPassing">
+			<td ng-bind="awayPass.name"></td>
+			<td>{{awayPass.completions}}/{{awayPass.attempts}}</td>
+			<td ng-bind="awayPass.yards"></td>
+			<td ng-bind="awayPass.touchdowns"></td>
+			<td ng-bind="awayPass.interceptions"></td>
+		</tr>
+		<tr>
+			<th>Rushing</th>
+			<th>Attempts</th>
+			<th>Yards</th>
+			<th>TD's</th>
+			<th>Long Rush</th>
+		</tr>
+		<tr ng-repeat="awayRush in ctrl.awayRushing">
+			<td ng-bind="awayRush.name"></td>
+			<td ng-bind="awayRush.attempts"></td>
+			<td ng-bind="awayRush.yards"></td>
+			<td ng-bind="awayRush.touchdowns"></td>
+			<td ng-bind="awayRush.long"></td>
+		</tr>
+		<tr>
+			<th>Receiving</th>
+			<th>Receptions</th>
+			<th>Yards</th>
+			<th>TD's</th>
+			<th>Long Reception</th>
+		</tr>
+		<tr ng-repeat="awayRec in ctrl.awayReceiving">
+			<td ng-bind="awayRec.name"></td>
+			<td ng-bind="awayRec.receptions"></td>
+			<td ng-bind="awayRec.yards"></td>
+			<td ng-bind="awayRec.touchdowns"></td>
+			<td ng-bind="awayRec.long"></td>
+		</tr>
+	</table>
+</div>
