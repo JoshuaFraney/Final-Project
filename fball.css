@@ -38,7 +38,20 @@
   text-decoration: underline;
   font-color: white;
 }
-#weekFoot {
+#homehead, #homesubhead {
+  text-align:center;
+  color:white;
+  text-decoration: underline;
+  font-weight: bold;
+   -webkit-text-stroke: 1px black;
+  text-shadow:
+      3px 3px 0 #000,
+     -1px -1px 0 #000,  
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+       1px 1px 0 #000;
+}
+#weekFoot, #dummyFoot, #homefoot, #aboutFoot, #playerlistFoot {
   right: 0;
   bottom: 0;
   left: 0;
@@ -64,17 +77,64 @@
   display:block;
   text-align:center;
   background-color: gainsboro;
+  color:black;
   font-variant: small-caps;
   font-style: bold;
-  width: 450px; 
+  width: 500px; 
   font-size: 28px;
     top: 50%;
     left: 50%;
 }
 
-/*li {
+#teamred {
+  color: cyan;
+}
+
+#home, #by-week, #players, #about {
+
+}
+
+#mainbody li a:hover:not(.active) {
+  background-color: #555;
+  color: #00FF00;
+}
+
+#vert-navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 12%;
+    background-color: #00FFFF;
+    height: 100%; /* Full height */
+    position: fixed; /* Make it stick, even on scroll */
+    overflow: auto; /* Enable scrolling if the sidenav has too much content */
+}
+
+#vert-navbar li a {
     display: block;
-}*/
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+#vert-navbar li a.active {
+    background-color: #000000;
+    color: cyan;
+}
+
+#vert-navbar li a:hover:not(.active) {
+    background-color: #555;
+    color: #00FF00;
+}
+
+#vert-navbar li {
+    text-align: center;
+    border-bottom: 1px solid #555;
+}
+
+#vert-navbar li:last-child {
+    border-bottom: none;
+}
 
 .about_list {
    /*list-style-image: url('http://www.free-icons-download.net/images/list-icon-88282.png');*/
@@ -107,8 +167,22 @@
     top: 50%;
     left: 50%;
 }
-#about_h {
+#about_h, #about_h2 {
   text-align: center;
+  color:white;
+  text-decoration: underline;
+  font-weight: bold;
+  -webkit-text-stroke: 1px black;
+  text-shadow:
+       3px 3px 0 #000,
+     -1px -1px 0 #000,  
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+       1px 1px 0 #000;
+  font-variant: small-caps;
+    top: 50%;
+    left: 50%;
+
 }
 #about_p {
   font-size: 36
@@ -128,6 +202,55 @@ ul.a {
     top: 50%;
     left: 50%;
 }
-  #about_h2 {
-  text-align: center;
+
+/*#about_top { float:left }*/
+
+/*#about_top_right { float:right }*/
+
+/*#about_bottom {float: left;}*/
+
+/*#about_bottom_right {float: right;}*/
+
+/*#joe {*/
+/*    height: auto; 
+    width: auto;*/ 
+    /*width: 300px; 
+    height: 300px;
+}*/
+
+/*#josh {*/
+/*  height: auto;
+  width: auto;*/
+  /*width: 300px;
+  max-height: 300px;
+}*/
+
+/*#evan {*/
+/*  height: auto;
+  width: auto;*/
+  /*width: 300px;
+  height: 300px;  
+}*/
+
+/*#gabe {*/
+/*  height: auto;
+  width: auto;*/
+ /* width: 300px;
+  height: 300px;
 }
+*/
+.square{ 
+    border:0px solid #000;         
+    padding-bottom: 30%; 
+    height: 50;
+    width: 0%; 
+    margin: 0 auto; 
+    float:left; 
+    display: block;
+
+ width:330px;
+ height:600px;
+
+
+}
+

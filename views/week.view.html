@@ -1,6 +1,6 @@
 <div id="weekPage">
 <div id="week">
-	<input id="curr_week" type="number" ng-value="ctrl.week" min="1" max="17"></input>
+	<input id="curr_week" type="number" ng-value="ctrl.week" min="1" max="17"></input> 
 	<button id="updWeek" class="btn btn-info w3-text-black" ng-click="ctrl.updWeek()"><strong>Refresh</strong></button>
 </div>
 <br />
@@ -10,11 +10,16 @@
 				<th>Game</th>
 				<th>Score</th>
 			</tr>
+			
+				
 			<tr ng-repeat="game in ctrl.games">
-				<td ng-show="game.vis"><a ng-click="ctrl.showPlayers(game.id)"><span>{{game.away}} @ {{game.home}}</span></a></td>
+				<td ng-show="game.vis"><a ng-click="ctrl.showPlayers(game.id)"><span>{{game.away}} @ {{game.home}} ({{wins}}-{{ties}}-{{losses}}) </span></a></td>
 				<td ng-show="game.vis"><span>{{game.away_score}} - {{game.home_score}}</span></td>
 			</tr>
-		</table>
+		</table> 
+
+
+
 	</div>
 	<div id="weekFoot" class="footer">
 				<i class="icon ion-ios-americanfootball w3-large"></i>
