@@ -4,17 +4,12 @@ mod.controller("playerlistCtrl", ["$http","helper","token", function($http,helpe
 
 	
 	$http({
-		url: "https://profootballapi.com/game",
-		method: "POST",
-		data: {
-			api_key: token.getToken(),
-			year: 2016,
-			season_type: REG
-		}
+		url: "http://localhost:8080/team",
+		method: "GET",
+		
 
 	}).then(function(resp) {
 		console.log(resp);
-		self.teams = resp.data;
-		console.log(self.teams)
+		self.teamName = resp.data;
 	});
 }]);

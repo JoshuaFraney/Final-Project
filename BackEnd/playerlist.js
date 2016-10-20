@@ -1,7 +1,7 @@
-mod.controller("PlayersCtrl", PlayersCtrl)
+mod.controller("playerlistCtrl", playerlistCtrl)
 
-PlayersCtrl.$inject = ["$http"]
-function PlayersCtrl($http) {
+playerlistCtrl.$inject = ["$http"]
+function playerlistCtrl($http) {
   var self = this
 
 

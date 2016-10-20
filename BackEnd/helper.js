@@ -2,6 +2,7 @@ mod.factory("helper", function() {
 	var self = this;
 	self.week = 1;
 	self.gameId = 0;
+	// self.teams = null;
 
 	return {
 		getWeek: function() {
@@ -16,5 +17,11 @@ mod.factory("helper", function() {
 		setGameId: function(newGameId) {
 			self.gameId = newGameId;
 		}
+		// getTeams: function() {
+		// 	return self.teams;
+		// },
+		// setTeams: function(newTeam) {
+		// 	self.teams = newTeam;
+		// }
 	}
 });

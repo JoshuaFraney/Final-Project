@@ -29,7 +29,7 @@ mod.config(['$routeProvider', function($routeProvider) {
 
 	}).when('/playerlist',{
 		templateUrl: 'views/playerlist.view.html',
-		controller: 'PlayerListCtrl',
+		controller: 'playerlistCtrl',
 		controllerAs: 'ctrl'
 
 	}).when('/reccommended',{

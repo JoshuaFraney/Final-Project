@@ -1,10 +1,14 @@
     <div class="playerlist-container">
       
-        <main ng-controller="PlayerListCtrl as ctrl">
-                        
-        
+       	<h1 id="team-list">Teams</h1>
 
-        </main>
+        	<div id="teamlist" ng-repeat="team in ctrl.teamName">
+        		
+        			<input type="radio" name="radTeamName">{{team.teamName}}
+        				<br/>
+        	</div>
+
+       
 
     <div id="playerlistFoot" class="footer">
 
