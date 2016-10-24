@@ -1,37 +1,74 @@
-mod.controller("weekCtrl", ["$http","$location","helper","token", function($http,$location,helper,token) {
+mod.controller("adminCtrl",
+	["$http","teamService","apiScheduleService","apiStatService","matchupService", "gameResultService", "offensivePlayerService", "positionService",
+	function($http,teamService,apiScheduleService,apiStatService,matchupService,gameResultService,offensivePlayerService,positionService,testMatchupService) {
 	var self = this;
-	self.week = helper.getWeek();
-	self.games = null;
-
-	$http({
-		url: "https://profootballapi.com/schedule",
-		method: "POST",
-		data: {
-			api_key: token.getToken(),
-			stats_type: "offense",
-			year: 2016,
-			season_type: "REG"
-		}
-
-	}).then(function(resp) {
-		console.log(resp);
-		self.games = resp.data;
-		self.updWeek()
+	
+	positionService.refresh().then(function(resp) {
+		self.positions = resp;
 	});
-
-	self.updWeek = function() {
-		var week = $("#curr_week").val();
-		console.log("old: ",helper.getWeek());
-		console.log("new: ",week);
-		helper.setWeek(week);
-		for(var game of self.games) {
-			if (game.week == week) {game.vis = true;} else {game.vis = false;}
-		}
+	//Pull Team information from local db
+	teamService.refresh().then(function(resp) {
+		self.teams = teamService.getTeams();
+		
+		offensivePlayerService.refresh().then(function(resp) {
+			self.players = offensivePlayerService.getPlayers();
+		})
+	
+		//Pull schedule information from api
+		apiScheduleService.refresh().then(function(resp) {
+			self.scheduleInfo = apiScheduleService.getScheduleInfo();
+			self.updMatchups = apiScheduleService.getUpdMatchups();
+			self.updGameResults = apiScheduleService.getUpdGameResults();
+			self.apiGameIdList = apiScheduleService.getApiGameIdList();
+			
+			//Pull matchup information from local db
+			matchupService.refresh(self.updMatchups).then(function(resp) {
+				self.matchups = matchupService.getMatchups();
+			});
+			
+			//Pull result information from local db
+			gameResultService.refresh(self.updGameResults).then(function(resp) {
+				self.gameResults = gameResultService.getGameResults();
+			});
+		});
+		
+	});
+	
+	
+	//Add Functions
+	self.addMatchup = function(homeTeam,awayTeam,week,isFinal) {
+		var home = teamService.getTeam(homeTeam);
+		var away = teamService.getTeam(awayTeam);
+		matchupService.addMatchup(home,away,week,isFinal);
 	}
-
-	self.showPlayers = function(gameId) {
-		helper.setGameId(gameId);
-		$location.path("/player");
+	
+	self.addResult = function(matchup,winTeam,loseTeam,winScore,loseScore,tie) {
+		var match = matchupService.getMatchup(matchup);
+		var winner = teamService.getTeam(winTeam);
+		var loser = teamService.getTeam(loseTeam);
+		gameResultService.addResult(match,winner,loser,winScore,loseScore,tie).then(function(resp) {
+			teamService.refresh();
+		})
+	}
+	
+	self.getGameStats = function(gameInfo) {
+		apiStatService.getGameStats(gameInfo.id).then(function(resp) {
+			console.log(resp);
+			gameInfo.stats["defense"] = apiStatService.getDefense();
+			gameInfo.stats["offense"] = apiStatService.getOffense();
+			gameInfo.vis = false;
+			gameInfo.stats.vis = true;
+			console.log(gameInfo);
+		});
+		
+	}
+	
+	self.addPlayerStats = function(playerStats) {
+		console.log(playerStats);
+		offensivePlayerService.addPlayer(playerStats.player).then(function(resp) {
+			var tempPlayer = resp;
+			offensivePlayerService.addPlayerStats(tempPlayer,playerStats).then(function(resp) {});
+		});
 	}
 
 }]);
