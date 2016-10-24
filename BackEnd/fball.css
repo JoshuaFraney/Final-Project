@@ -64,6 +64,7 @@
   padding: 1rem;
   background-color: #efefef;
   text-align: center;
+  margin: 0 auto;
   position:absolute;
 }
 #playerFoot, #playerlistFoot, #homeFoot  {
@@ -74,6 +75,22 @@
   background-color: #efefef;
   text-align: center;
   position:bottom;
+  height:60px;
+}
+#about-container{
+   min-height:100%;
+   position:relative;
+}
+#aboutFoot{
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom:0;
+  position:absolute;
 }
 #games-table-div {
   text-align:center;
@@ -233,4 +250,47 @@ ul.a {
       1px -1px 0 #000,
       -1px 1px 0 #000,
        1px 1px 0 #000;
+}
+
+/*#joe {*/
+/*    height: auto; 
+    width: auto;*/ 
+    /*width: 300px; 
+    height: 300px;
+}*/
+
+/*#josh {*/
+/*  height: auto;
+  width: auto;*/
+  /*width: 300px;
+  max-height: 300px;
+}*/
+
+/*#evan {*/
+/*  height: auto;
+  width: auto;*/
+  /*width: 300px;
+  height: 300px;  
+}*/
+
+/*#gabe {*/
+/*  height: auto;
+  width: auto;*/
+ /* width: 300px;
+  height: 300px;
+}
+*/
+.square{ 
+    border:0px solid #000;         
+    height: 50;
+    width: 0%; 
+    margin-left:22%; 
+    float:left; 
+    display: block;
+    margin-bottom:25%;
+    width:330px;
+    height:600px;
+    padding-bottom:60px;
+    
+
 }

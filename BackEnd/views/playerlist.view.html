@@ -8,7 +8,23 @@
         				<br/>
         	</div>
 
-       
+       		<div id="playrlist" >
+       			
+       			<table id="playertable" class="table table-striped table-bordered table-condensed table-hover w3-card-16 w3-table-all">
+
+       				<tr>
+       					<th>Player Name</th>
+       					<th>Position</th>
+       				</tr>
+       				
+       				<tr ng-repeat="player in ctrl.playrName">
+       					<th>{{player.name}}</th>
+       					<th>{{player.position}}</th>
+       				<tr>
+
+       			</table>
+
+       		<div>
 
     <div id="playerlistFoot" class="footer">
 
