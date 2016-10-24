@@ -1,11 +1,18 @@
 mod.controller("adminCtrl",
-	["$http","teamService","apiScheduleService","apiStatService","matchupService", "gameResultService",
-	function($http,teamService,apiScheduleService,apiStatService,matchupService,gameResultService) {
+	["$http","teamService","apiScheduleService","apiStatService","matchupService", "gameResultService", "offensivePlayerService", "positionService", "testMatchupService",
+	function($http,teamService,apiScheduleService,apiStatService,matchupService,gameResultService,offensivePlayerService,positionService,testMatchupService) {
 	var self = this;
 	
+	positionService.refresh().then(function(resp) {
+		self.positions = resp;
+	});
 	//Pull Team information from local db
 	teamService.refresh().then(function(resp) {
 		self.teams = teamService.getTeams();
+		
+		offensivePlayerService.refresh().then(function(resp) {
+			self.players = offensivePlayerService.getPlayers();
+		})
 	
 		//Pull schedule information from api
 		apiScheduleService.refresh().then(function(resp) {
@@ -54,6 +61,14 @@ mod.controller("adminCtrl",
 			console.log(gameInfo);
 		});
 		
+	}
+	
+	self.addPlayerStats = function(playerStats) {
+		console.log(playerStats);
+		offensivePlayerService.addPlayer(playerStats.player).then(function(resp) {
+			var tempPlayer = resp;
+			offensivePlayerService.addPlayerStats(tempPlayer,playerStats).then(function(resp) {});
+		});
 	}
 
 }]);

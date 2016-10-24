@@ -56,6 +56,7 @@ mod.factory("apiStatService", ["$http","$q","token","teamService", function($htt
 			
 			return {
 				home: {
+					opponent: teamService.getTeam(awayTeam),
 					passYardsAllowed: homePassYardsAllowed,
 					rushYardsAllowed: homeRushYardsAllowed,
 					team: teamService.getTeam(homeTeam),
@@ -65,6 +66,7 @@ mod.factory("apiStatService", ["$http","$q","token","teamService", function($htt
 					fumbleRcvry: homeFumblRec
 				},
 				away: {
+					opponent: teamService.getTeam(homeTeam),
 					passYardsAllowed: awayPassYardsAllowed,
 					rushYardsAllowed: awayRushYardsAllowed,
 					team: teamService.getTeam(awayTeam),
@@ -104,6 +106,9 @@ mod.factory("apiStatService", ["$http","$q","token","teamService", function($htt
 				away: {}
 			};
 			
+			var homeTeam = gameStats.home.team;
+			var awayTeam = gameStats.away.team;
+			
 			//Home Passing
 			_.each(gameStats.home.stats.passing, function(value,key) {
 				if(_.has(stats.home,value.name)) {
@@ -113,7 +118,8 @@ mod.factory("apiStatService", ["$http","$q","token","teamService", function($htt
 					stats.home[value.name].passInterceptions += value.interceptions;
 				} else {
 					stats.home[value.name] = {
-						name: value.name,
+						player: {name: value.name, team: homeTeam, position: "QB"},
+						opponent: teamService.getTeam(awayTeam),
 						passAttempts: value.attempts,
 						passCompletions: value.completions,
 						passYards: value.yards,
@@ -138,7 +144,8 @@ mod.factory("apiStatService", ["$http","$q","token","teamService", function($htt
 					stats.home[value.name].recTouchdowns += value.touchdowns;
 				} else {
 					stats.home[value.name] = {
-						name: value.name,
+						player: {name: value.name, team: homeTeam, position: "WR"},
+						opponent: teamService.getTeam(awayTeam),
 						passAttempts: 0,
 						passCompletions: 0,
 						passYards: 0,
@@ -163,7 +170,8 @@ mod.factory("apiStatService", ["$http","$q","token","teamService", function($htt
 					stats.home[value.name].rushTouchdowns += value.touchdowns;
 				} else {
 					stats.home[value.name] = {
-						name: value.name,
+						player: {name: value.name, team: homeTeam, position: "RB"},
+						opponent: teamService.getTeam(awayTeam),
 						passAttempts: 0,
 						passCompletions: 0,
 						passYards: 0,
@@ -189,7 +197,8 @@ mod.factory("apiStatService", ["$http","$q","token","teamService", function($htt
 					stats.away[value.name].passInterceptions += value.interceptions;
 				} else {
 					stats.away[value.name] = {
-						name: value.name,
+						player: {name: value.name, team: awayTeam, position: "QB"},
+						opponent: teamService.getTeam(homeTeam),
 						passAttempts: value.attempts,
 						passCompletions: value.completions,
 						passYards: value.yards,
@@ -214,7 +223,8 @@ mod.factory("apiStatService", ["$http","$q","token","teamService", function($htt
 					stats.away[value.name].recTouchdowns += value.touchdowns;
 				} else {
 					stats.away[value.name] = {
-						name: value.name,
+						player: {name: value.name, team: awayTeam, position: "WR"},
+						opponent: teamService.getTeam(homeTeam),
 						passAttempts: 0,
 						passCompletions: 0,
 						passYards: 0,
@@ -239,7 +249,8 @@ mod.factory("apiStatService", ["$http","$q","token","teamService", function($htt
 					stats.away[value.name].rushTouchdowns += value.touchdowns;
 				} else {
 					stats.away[value.name] = {
-						name: value.name,
+						player: {name: value.name, team: awayTeam, position: "RB"},
+						opponent: teamService.getTeam(homeTeam),
 						passAttempts: 0,
 						passCompletions: 0,
 						passYards: 0,
