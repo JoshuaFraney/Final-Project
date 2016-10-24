@@ -24,3 +24,4 @@ mod.controller("playerCtrl", ["$http","helper","token", function($http,helper,to
 		self.awayReceiving = resp.data.away.stats.receiving;
 	});
 }]);
+
