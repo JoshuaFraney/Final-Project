@@ -3,7 +3,12 @@
   margin-right:15%;
   border: 2px solid grey;
 }
-#mainBody{
+
+/*#main-container{
+  opacity: 100%;
+  style="background-image:url(http://cdn.wallpapersafari.com/50/21/PCzcQU.jpg)"
+}*/
+#home-container{
   background-image: url("http://cdn.wallpapersafari.com/50/21/PCzcQU.jpg");
   background-size: cover;
   -moz-background-size: cover;
@@ -291,6 +296,7 @@ ul.a {
     width:330px;
     height:600px;
     padding-bottom:60px;
-    
-
+}
+#week-container, #about-container, #playerlist-container, #player-container {
+  background-image: url("/images/football-background.jpg");
 }
