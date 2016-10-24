@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ssa.entity.Matchup;
 import com.ssa.service.IMatchupService;
+import com.ssa.service.ITeamService;
 
 @CrossOrigin(origins = {"http://localhost:8081","null"})
 @RestController
@@ -22,6 +23,8 @@ public class MatchupController {
 
 	@Autowired
 	private IMatchupService matchupService;
+	
+	@Autowired ITeamService teamService;
 	
 	@RequestMapping(value="/matchup",method=RequestMethod.GET)
 	public ResponseEntity<List<Matchup>> getAllMatchups() {
@@ -84,4 +87,5 @@ public class MatchupController {
 		}
 		return new ResponseEntity<Boolean>(success,success?HttpStatus.OK:HttpStatus.NO_CONTENT);
 	}
+	
 }

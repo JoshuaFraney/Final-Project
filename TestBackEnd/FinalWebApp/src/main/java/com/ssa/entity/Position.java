@@ -26,9 +26,9 @@ public class Position {
 	private String description;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy="position",fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="position",fetch=FetchType.LAZY)
 	@Fetch(FetchMode.SUBSELECT)
-	private List<OffensivePlayer> playersByPosition = new ArrayList<OffensivePlayer>();
+	public List<OffensivePlayer> playersByPosition = new ArrayList<OffensivePlayer>();
 	
 	public List<OffensivePlayer> getPlayersByPosition() {
 		return this.playersByPosition;

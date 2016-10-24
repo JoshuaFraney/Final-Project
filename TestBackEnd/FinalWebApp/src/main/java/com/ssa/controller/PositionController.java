@@ -28,9 +28,9 @@ public class PositionController {
 		return new ResponseEntity<List<Position>>(positions,HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="/position/players/{id}",method=RequestMethod.GET)
-	public ResponseEntity<List<OffensivePlayer>> getPlayersByPosition(@PathVariable("id") Integer id) {
-		List<OffensivePlayer> players = positionService.getPositionById(id).getPlayersByPosition();
+	@RequestMapping(value="/position/players/{code}",method=RequestMethod.GET)
+	public ResponseEntity<List<OffensivePlayer>> getPlayersByPosition(@PathVariable("code") String code) {
+		List<OffensivePlayer> players = positionService.getPlayersByPosition(code);
 		return new ResponseEntity<List<OffensivePlayer>>(players, HttpStatus.OK);
 	}
 	

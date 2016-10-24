@@ -23,6 +23,11 @@ public class OffensivePlayerService implements IOffensivePlayerService {
 	public OffensivePlayer getOffensivePlayerById(int id) {
 		return OffensivePlayerDAO.getOffensivePlayerById(id);
 	}
+	
+	@Override 
+	public OffensivePlayer getOffensivePlayer(OffensivePlayer offensivePlayer) {
+		return OffensivePlayerDAO.getOffensivePlayer(offensivePlayer);
+	}
 
 	@Override
 	public boolean addOffensivePlayer(OffensivePlayer offensivePlayer) {

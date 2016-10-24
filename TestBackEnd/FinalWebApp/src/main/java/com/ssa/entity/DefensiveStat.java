@@ -17,9 +17,13 @@ public class DefensiveStat {
 	@Column(name="rushYardsAllowed")
 	private Integer rushYardsAllowed;
 	
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name="teamId")
 	private Team team;
+	
+	@ManyToOne
+	@JoinColumn(name="oppTeamId")
+	private Team opponent;
 	
 	@Column(name="pointsAllowed")
 	private Integer pointsAllowed;

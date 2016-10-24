@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.ssa.entity.OffensivePlayer;
 import com.ssa.entity.Position;
-import com.ssa.entity.Team;
 
 @Transactional
 @Repository
@@ -38,9 +37,16 @@ public class PositionDAO implements IPositionDAO {
 	@Override
 	public Position getPositionByCode(String code) {
 		String hql = "FROM Position as p WHERE p.code = " + code;
-		List<Position> list = (List<Position>)hibernateTemplate.find(hql).get(0);
+		List<Position> list = (List<Position>)hibernateTemplate.find(hql);
 		if(list.isEmpty()) {return null;}
 		return list.get(0);
+	}
+	
+	@Override
+	public List<OffensivePlayer> getPlayersByPosition(String code) {
+		Position position = this.getPositionByCode(code);
+		hibernateTemplate.initialize(position.playersByPosition);
+		return position.getPlayersByPosition();
 	}
 
 	@Override

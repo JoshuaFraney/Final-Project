@@ -11,9 +11,13 @@ public class OffensiveStat {
 	@Column(name="id")
 	private int id;
 	
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name="playerId")
 	private OffensivePlayer player;
+	
+	@ManyToOne
+	@JoinColumn(name="oppTeamId")
+	private Team opponent;
 	
 	@Column(name="passAttempts")
 	private Integer passAttempts;
@@ -50,6 +54,14 @@ public class OffensiveStat {
 	
 	@Column(name="fumbles")
 	private Integer fumbles;
+
+	public Team getOpponent() {
+		return opponent;
+	}
+
+	public void setOpponent(Team opponent) {
+		this.opponent = opponent;
+	}
 
 	public OffensivePlayer getPlayer() {
 		return player;

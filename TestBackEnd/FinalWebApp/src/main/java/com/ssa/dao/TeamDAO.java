@@ -37,11 +37,12 @@ public class TeamDAO implements ITeamDAO{
 	@SuppressWarnings("unchecked")
 	@Override
 	public Team getTeamByAbrev(String abrev) {
-		String hql = "FROM Team as t where t.abrev = " + abrev;
+		String hql = "FROM Team as t where t.abrev = '" + abrev + "'";
 		List<Team> list = (List<Team>) hibernateTemplate.find(hql);
 		if (list.isEmpty()) {
 			return null;
 		}
+		hibernateTemplate.initialize(list.get(0).homeGames);
 		return list.get(0);
 	}
 

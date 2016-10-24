@@ -42,44 +42,61 @@ public class Team {
 	private Integer ovrRank;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy="team",fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="team",fetch=FetchType.LAZY)
 	@Fetch(FetchMode.SUBSELECT)
-	private List<OffensivePlayer> roster = new ArrayList<OffensivePlayer>();
+	public List<OffensivePlayer> roster = new ArrayList<OffensivePlayer>();
 	
 	@JsonIgnore
-	@OneToMany(mappedBy="homeTeam",fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="homeTeam",fetch=FetchType.LAZY)
 	@Fetch(FetchMode.SUBSELECT)
-	private List<Matchup> homeGames = new ArrayList<Matchup>();
+	public List<Matchup> homeGames = new ArrayList<Matchup>();
 	
 	@JsonIgnore
-	@OneToMany(mappedBy="awayTeam",fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="awayTeam",fetch=FetchType.LAZY)
 	@Fetch(FetchMode.SUBSELECT)
-	private List<Matchup> awayGames = new ArrayList<Matchup>();
+	public List<Matchup> awayGames = new ArrayList<Matchup>();
 	
 	@JsonIgnore
-	@OneToMany(mappedBy="winTeam",fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="winTeam",fetch=FetchType.LAZY)
 	@Fetch(FetchMode.SUBSELECT)
-	private List<GameResult> winResults = new ArrayList<GameResult>();
+	public List<GameResult> winResults = new ArrayList<GameResult>();
 	
 	@JsonIgnore
-	@OneToMany(mappedBy="loseTeam",fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="loseTeam",fetch=FetchType.LAZY)
 	@Fetch(FetchMode.SUBSELECT)
-	private List<GameResult> loseResults = new ArrayList<GameResult>();
+	public List<GameResult> loseResults = new ArrayList<GameResult>();
 	
 	@JsonIgnore
-	@OneToOne(mappedBy="team",fetch=FetchType.EAGER)
-	@Fetch(FetchMode.SELECT)
-	private DefensiveStat defensiveStat;
+	@OneToMany(mappedBy="opponent",fetch=FetchType.LAZY)
+	@Fetch(FetchMode.SUBSELECT)
+	public List<DefensiveStat> defensiveStats = new ArrayList<DefensiveStat>();
+	
+	@JsonIgnore
+	@OneToMany(mappedBy="opponent",fetch=FetchType.LAZY)
+	@Fetch(FetchMode.SUBSELECT)
+	public List<OffensiveStat> offensiveStats = new ArrayList<OffensiveStat>();
 	
 	public void addWin() {this.wins++;}
 	public void addLoss() {this.losses++;}
 	public void addTie() {this.ties++;}
 	
-	public DefensiveStat getDefensiveStat() {
-		return defensiveStat;
+	public List<OffensivePlayer> getRoster() {
+		return roster;
 	}
-	public void setDefensiveStat(DefensiveStat defensiveStat) {
-		this.defensiveStat = defensiveStat;
+	public void setRoster(List<OffensivePlayer> roster) {
+		this.roster = roster;
+	}
+	public List<OffensiveStat> getOffensiveStats() {
+		return offensiveStats;
+	}
+	public void setOffensiveStats(List<OffensiveStat> offensiveStats) {
+		this.offensiveStats = offensiveStats;
+	}
+	public List<DefensiveStat> getDefensiveStats() {
+		return defensiveStats;
+	}
+	public void setDefensiveStats(List<DefensiveStat> defensiveStats) {
+		this.defensiveStats = defensiveStats;
 	}
 	public void setHomeGames(List<Matchup> homeGames) {
 		this.homeGames = homeGames;

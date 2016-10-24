@@ -1,6 +1,14 @@
 package com.ssa.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.*;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="game_result")

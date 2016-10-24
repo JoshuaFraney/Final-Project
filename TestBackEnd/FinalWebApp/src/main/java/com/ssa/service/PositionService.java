@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ssa.dao.IPositionDAO;
+import com.ssa.entity.OffensivePlayer;
 import com.ssa.entity.Position;
 
 @Service
@@ -27,6 +28,11 @@ public class PositionService implements IPositionService {
 	@Override
 	public Position getPositionByCode(String code) {
 		return positionDAO.getPositionByCode(code);
+	}
+	
+	@Override
+	public List<OffensivePlayer> getPlayersByPosition(String code) {
+		return positionDAO.getPlayersByPosition(code);
 	}
 
 	@Override

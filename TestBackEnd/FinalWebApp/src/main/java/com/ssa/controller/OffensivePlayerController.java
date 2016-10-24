@@ -61,11 +61,8 @@ public class OffensivePlayerController {
 	}
 	
 	@RequestMapping(value="/offensivePlayer/add",method=RequestMethod.POST)
-	public ResponseEntity<Boolean> add(@RequestBody OffensivePlayer offensivePlayer) {
-		if(offensivePlayerService.addOffensivePlayer(offensivePlayer))
-			return new ResponseEntity<Boolean>(true,HttpStatus.CREATED);
-		else
-			return new ResponseEntity<Boolean>(false,HttpStatus.NO_CONTENT);
+	public ResponseEntity<OffensivePlayer> add(@RequestBody OffensivePlayer offensivePlayer) {
+		return new ResponseEntity<OffensivePlayer>(offensivePlayerService.getOffensivePlayer(offensivePlayer),HttpStatus.OK);
 	}
 	
 	@RequestMapping(value="/offensivePlayer/addList",method=RequestMethod.POST)

@@ -33,6 +33,20 @@ public class OffensivePlayerDAO implements IOffensivePlayerDAO{
 		}
 		return list.get(0);
 	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public OffensivePlayer getOffensivePlayer(OffensivePlayer offensivePlayer) {
+		String hql = "FROM OffensivePlayer as p WHERE p.name = '" + offensivePlayer.getName() + "' AND p.team.abrev = '" + offensivePlayer.getTeam().getAbrev() + "'";
+		List<OffensivePlayer> list = (List<OffensivePlayer>) hibernateTemplate.find(hql);
+		if (list.isEmpty()) {
+			System.out.println("NOT FOUND!");
+			hibernateTemplate.save(offensivePlayer);
+			return offensivePlayer;
+		}
+		System.out.println("Found " + list.size() + " results: " + list.get(0).getName());
+		return list.get(0);
+	}
 
 	@Override
 	public boolean addOffensivePlayer(OffensivePlayer offensivePlayer) {
