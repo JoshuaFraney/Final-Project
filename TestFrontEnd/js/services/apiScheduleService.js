@@ -4,7 +4,7 @@ mod.factory("apiScheduleService", ["$http","$q","token", function($http,$q,token
 	var scheduleInfo = [];
 	var updMatchups = [];
 	var updGameResults = [];
-	var apiGameIdList = [];
+	var apiGameIdList = {};
 	
 	return {
 		getScheduleInfo: function() {
@@ -32,7 +32,7 @@ mod.factory("apiScheduleService", ["$http","$q","token", function($http,$q,token
 			}).success(function(resp) {
 				scheduleInfo = resp;
 				for(var game of scheduleInfo) {
-					if(game.final) {apiGameIdList.push({id: game.id, vis: true, stats: {vis: false}});}
+					if(game.final) {apiGameIdList[game.id] = {homeTeam: game.home, awayTeam: game.away};}
 					var match = {
 						week: game.week,
 						homeTeam: game.home,

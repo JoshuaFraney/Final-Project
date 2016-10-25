@@ -46,10 +46,11 @@
 		<h3>Offensive Player Info</h3>
 		<table class="table table-bordered table-striped table-hover">
 			<tr ng-repeat="player in ctrl.players">
-				<td ng-bind="'Id: ' + player.id"></td>
-				<td ng-bind="'Name: ' + player.name"></td>
-				<td ng-bind="'Position: ' + player.position.description"></td>
-				<td ng-bind="'Team: ' + player.team.teamName"></td>
+				<td ng-show="player.vis" ng-bind="'Id: ' + player.id"></td>
+				<td ng-show="player.vis" ng-bind="'Name: ' + player.name"></td>
+				<td ng-show="player.vis" ng-bind="'Position: ' + player.position.description"></td>
+				<td ng-show="player.vis" ng-bind="'Team: ' + player.team.teamName"></td>
+				<td ng-show="player.vis"><button ng-click="ctrl.getStats(player);player.vis = false;">Get Stats</button></td>
 			</tr>
 		</table>
 	</div>
@@ -76,62 +77,6 @@
 				<td ng-show="result.vis"><button ng-click="ctrl.addResult(result.matchup,result.winTeam,result.loseTeam,result.winScore,result.loseScore,result.tie);result.vis=false;">Add Record</button></td>
 			</tr>
 		</table>
-	</div>
-	<div ng-repeat="gameId in ctrl.apiGameIdList">
-			<a ng-bind="gameId.id" ng-show="gameId.vis" ng-click="ctrl.getGameStats(gameId);"></a>
-			<table ng-show="gameId.stats.vis" class="table table-bordered table-striped table-hover">
-				<thead>
-					<th>Actions</th>
-					<th>Name</th>
-					<th>Position</th>
-					<th>Pass Attempts</th>
-					<th>Pass Completions</th>
-					<th>Pass Yards</th>
-					<th>Pass Touchdowns</th>
-					<th>Pass Interceptions</th>
-					<th>Receptions</th>
-					<th>Receiving Yards</th>
-					<th>Receiving Touchdowns</th>
-					<th>Rushes</th>
-					<th>Rushing Yards</th>
-					<th>Rushing Touchdowns</th>
-					<th>Fumbles</th>
-				</thead>
-				<tr ng-repeat="player in gameId.stats.offense.home">
-					<td><button>Erase</button><button ng-click="ctrl.addPlayerStats(player)">Add</button></td>
-					<td ng-bind="player.player.name + ' - ' + player.player.team"></td>
-					<td><input type="text" style="width:30px;" ng-model="player.player.position"></input></td>
-					<td ng-bind="player.passAttempts"></td>
-					<td ng-bind="player.passCompletions"></td>
-					<td ng-bind="player.passYards"></td>
-					<td ng-bind="player.passTouchdowns"></td>
-					<td ng-bind="player.passInterceptions"></td>
-					<td ng-bind="player.receptions"></td>
-					<td ng-bind="player.recYards"></td>
-					<td ng-bind="player.recTouchdowns"></td>
-					<td ng-bind="player.rushAttempts"></td>
-					<td ng-bind="player.rushYards"></td>
-					<td ng-bind="player.rushTouchdowns"></td>
-					<td ng-bind="player.fumbles"></td>
-				</tr>
-				<tr ng-repeat="player in gameId.stats.offense.away">
-					<td><button>Erase</button><button ng-click="ctrl.addPlayerStats(player)">Add</button></td>
-					<td ng-bind="player.player.name + ' - ' + player.player.team"></td>
-					<td><input type="text" style="width:30px;" ng-model="player.player.position"></input></td>
-					<td ng-bind="player.passAttempts"></td>
-					<td ng-bind="player.passCompletions"></td>
-					<td ng-bind="player.passYards"></td>
-					<td ng-bind="player.passTouchdowns"></td>
-					<td ng-bind="player.passInterceptions"></td>
-					<td ng-bind="player.receptions"></td>
-					<td ng-bind="player.recYards"></td>
-					<td ng-bind="player.recTouchdowns"></td>
-					<td ng-bind="player.rushAttempts"></td>
-					<td ng-bind="player.rushYards"></td>
-					<td ng-bind="player.rushTouchdowns"></td>
-					<td ng-bind="player.fumbles"></td>
-				</tr>
-			</table>
 	</div>
 </div>
 </div>

@@ -1,6 +1,6 @@
 mod.factory("token", function() {
 	var self = this;
-	self.token = "*********************";
+	self.token = "*****************";
 	
 	return {
 		getToken: function() {

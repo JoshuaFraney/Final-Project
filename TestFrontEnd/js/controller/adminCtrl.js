@@ -70,5 +70,21 @@ mod.controller("adminCtrl",
 			offensivePlayerService.addPlayerStats(tempPlayer,playerStats).then(function(resp) {});
 		});
 	}
+	
+	self.getStats = function(player) {
+		offensivePlayerService.getStats(player).then(function(resp) {
+			var teamAbrev = player.team.abrev;
+			for(gameStat of resp) {
+				if (gameStat.player.team.abrev == self.apiGameIdList[gameStat.opponent].homeTeam) {
+					gameStat.opponent = self.apiGameIdList[gameStat.opponent].awayTeam;
+				} else {
+					gameStat.opponent = self.apiGameIdList[gameStat.opponent].homeTeam;
+				}
+				gameStat.opponent = teamService.getTeam(gameStat.opponent);
+				offensivePlayerService.addPlayerStats(gameStat);
+			}
+			
+		});
+	}
 
 }]);
