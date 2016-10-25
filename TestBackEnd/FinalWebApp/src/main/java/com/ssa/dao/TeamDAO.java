@@ -7,6 +7,7 @@ import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.ssa.entity.OffensivePlayer;
 import com.ssa.entity.Team;
 
 @Transactional
@@ -44,6 +45,17 @@ public class TeamDAO implements ITeamDAO{
 		}
 		hibernateTemplate.initialize(list.get(0).homeGames);
 		return list.get(0);
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<OffensivePlayer> getRoster(String abrev) {
+		String hql = "FROM Team as t where t.abrev = '" + abrev + "'";
+		List<Team> list = (List<Team>) hibernateTemplate.find(hql);
+		if (list.isEmpty()) {
+			return null;
+		}
+		hibernateTemplate.initialize(list.get(0).roster);
+		return list.get(0).getRoster();
 	}
 
 	@Override

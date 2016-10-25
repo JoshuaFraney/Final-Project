@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ssa.entity.OffensivePlayer;
+import com.ssa.entity.Team;
 
 @Transactional
 @Repository
@@ -32,6 +33,14 @@ public class OffensivePlayerDAO implements IOffensivePlayerDAO{
 			return null;
 		}
 		return list.get(0);
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<OffensivePlayer> getOffensivePlayersByPosition(String code) {
+		String hql = "From OffensivePlayer as p WHERE p.position.code = '" + code + "'";
+		List<OffensivePlayer> list = (List<OffensivePlayer>) hibernateTemplate.find(hql);
+		return list;
 	}
 	
 	@SuppressWarnings("unchecked")

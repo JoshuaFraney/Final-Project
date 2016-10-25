@@ -29,6 +29,18 @@ public class OffensivePlayerController {
 		return new ResponseEntity<List<OffensivePlayer>>(offensivePlayers,HttpStatus.OK);
 	}
 	
+	@RequestMapping(value="/offensivePlayer/team/{team}",method=RequestMethod.GET)
+	public ResponseEntity<List<OffensivePlayer>> getOffensivePlayersByTeam(@PathVariable("team") String team) {
+		List<OffensivePlayer> offensivePlayers = offensivePlayerService.getOffensivePlayersByTeam(team);
+		return new ResponseEntity<List<OffensivePlayer>>(offensivePlayers,HttpStatus.OK);
+	}
+	
+	@RequestMapping(value="/offensivePlayer/position/{code}",method=RequestMethod.GET) 
+	public ResponseEntity<List<OffensivePlayer>> getOffensivePlayerByPosition(@PathVariable("code") String code) {
+		List<OffensivePlayer> offensivePlayers = offensivePlayerService.getOffensivePlayersByPosition(code);
+		return new ResponseEntity<List<OffensivePlayer>>(offensivePlayers,HttpStatus.OK);
+	}
+	
 	@RequestMapping(value="/offensivePlayer/id/{id}",method=RequestMethod.GET)
 	public ResponseEntity<OffensivePlayer> getOffensivePlayerById(@PathVariable("id") Integer id) {
 		OffensivePlayer offensivePlayer = offensivePlayerService.getOffensivePlayerById(id);

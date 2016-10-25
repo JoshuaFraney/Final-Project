@@ -4,6 +4,7 @@ C:\Users\admin\workspace\FinalWebApp\src\main\java\com\ssa\service\IOffensiveSta
 C:\Users\admin\workspace\FinalWebApp\src\main\java\com\ssa\controller\PositionController.java
 C:\Users\admin\workspace\FinalWebApp\src\main\java\com\ssa\dao\PositionDAO.java
 C:\Users\admin\workspace\FinalWebApp\src\main\java\com\ssa\service\IOffensivePlayerService.java
+C:\Users\admin\workspace\FinalWebApp\src\main\java\com\ssa\entity\FantasyScoring.java
 C:\Users\admin\workspace\FinalWebApp\src\main\java\com\ssa\entity\GameResult.java
 C:\Users\admin\workspace\FinalWebApp\src\main\java\com\ssa\dao\IMatchupDAO.java
 C:\Users\admin\workspace\FinalWebApp\src\main\java\com\ssa\dao\IDefensiveStatDAO.java

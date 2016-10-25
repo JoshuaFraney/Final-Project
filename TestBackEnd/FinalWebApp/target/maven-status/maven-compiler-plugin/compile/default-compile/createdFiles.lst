@@ -37,6 +37,7 @@ com\ssa\dao\TeamDAO.class
 com\ssa\dao\GameResultDAO.class
 com\ssa\dao\PositionDAO.class
 com\ssa\controller\GameResultController.class
+com\ssa\entity\FantasyScoring.class
 com\ssa\service\IOffensiveStatService.class
 com\ssa\dao\IOffensiveStatDAO.class
 com\ssa\dao\ITeamDAO.class

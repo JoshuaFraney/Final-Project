@@ -6,6 +6,8 @@ import com.ssa.entity.OffensivePlayer;
 
 public interface IOffensivePlayerService {
 	List<OffensivePlayer> getAllOffensivePlayers();
+	List<OffensivePlayer> getOffensivePlayersByTeam(String team);
+	List<OffensivePlayer> getOffensivePlayersByPosition(String code);
 	OffensivePlayer getOffensivePlayerById(int id);
 	OffensivePlayer getOffensivePlayer(OffensivePlayer offensivePlayer);
 	boolean addOffensivePlayer(OffensivePlayer OffensivePlayer);
