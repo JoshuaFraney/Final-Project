@@ -36,7 +36,7 @@ public class DBConfiguration {
     public SessionFactory sessionFactory() {
         return new LocalSessionFactoryBuilder(getDataSource()).addAnnotatedClasses(
         		Position.class,Team.class,OffensivePlayer.class,OffensiveStat.class,
-        		DefensiveStat.class,Matchup.class,GameResult.class)
+        		DefensiveStat.class,Matchup.class,GameResult.class,FantasyScoring.class)
                 .buildSessionFactory();
     }
 

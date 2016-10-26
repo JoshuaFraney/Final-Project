@@ -1,5 +1,6 @@
 Use final_project;
 
+Drop table if exists fantasy_scoring;
 Drop table if exists defensive_stat;
 Drop table if exists offensive_stat;
 Drop table if exists offensive_player;
@@ -7,6 +8,31 @@ Drop table if exists game_result;
 Drop table if exists matchup;
 Drop table if exists team;
 Drop table if exists position;
+
+Create table fantasy_scoring (
+id int primary key auto_increment,
+description varchar(20),
+reception decimal(8,2),
+rush_yard decimal(8,2),
+rec_yard decimal(8,2),
+pass_yard decimal(8,2),
+pass_touchdown int,
+rush_touchdown int,
+rec_touchdown int,
+interception int,
+fumble_lost int,
+def_0_points int,
+def_6_points int,
+def_13_points int,
+def_17_points int,
+def_27_points int,
+def_34_points int,
+def_45_points int,
+def_over_45_points int,
+def_fumble_rec int,
+def_interception int,
+def_sack int
+);
 
 Create table position (
 id int primary key auto_increment,
@@ -22,7 +48,8 @@ abrev varchar(5),
 wins int default 0,
 losses int default 0,
 ties int default 0,
-ovrRank int
+ovrRank int,
+stadiumLocation varchar(30)
 );
 
 Create table offensive_player (
@@ -106,38 +133,38 @@ REFERENCES team (id)
 
 
 
-INSERT into team (division, TeamName, abrev) values ('NFC West', 'Arizona Cardinals', 'ARI');
-INSERT into team (division, TeamName, abrev) values ('NFC South', 'Atlanta Falcons', 'ATL');
-INSERT into team (division, TeamName, abrev) values ('AFC North', 'Baltimore Ravens', 'BAL');
-INSERT into team (division, TeamName, abrev) values ('AFC East', 'Buffalo Bills', 'BUF');
-INSERT into team (division, TeamName, abrev) values ('NFC South', 'Carolina Panthers', 'CAR');
-INSERT into team (division, TeamName, abrev) values ('NFC North', 'Chicago Bears', 'CHI');
-INSERT into team (division, TeamName, abrev) values ('AFC North', 'Cincinatti Bengals', 'CIN');
-INSERT into team (division, TeamName, abrev) values ('AFC North', 'Cleveland Browns', 'CLE');
-INSERT into team (division, TeamName, abrev) values ('NFC East', 'Dallas Cowboys', 'DAL');
-INSERT into team (division, TeamName, abrev) values ('AFC West', 'Denver Broncos', 'DEN');
-INSERT into team (division, TeamName, abrev) values ('NFC North', 'Detroit Lions', 'DET');
-INSERT into team (division, TeamName, abrev) values ('NFC North', 'Green Bay Packers', 'GB');
-INSERT into team (division, TeamName, abrev) values ('AFC South', 'Houston Texans', 'HOU');
-INSERT into team (division, TeamName, abrev) values ('AFC South', 'Indianapolis Colts', 'IND');
-INSERT into team (division, TeamName, abrev) values ('AFC South', 'Jacksonville Jaguars', 'JAX');
-INSERT into team (division, TeamName, abrev) values ('AFC West', 'Kansas City Chiefs', 'KC');
-INSERT into team (division, TeamName, abrev) values ('NFC West', 'Los Angeles Rams', 'LA');
-INSERT into team (division, TeamName, abrev) values ('AFC East', 'Miami Dolphins', 'MIA');
-INSERT into team (division, TeamName, abrev) values ('NFC North', 'Minnesota Vikings', 'MIN');
-INSERT into team (division, TeamName, abrev) values ('AFC East', 'New England Patriots', 'NE');
-INSERT into team (division, TeamName, abrev) values ('NFC South', 'New Orleans Saints', 'NO');
-INSERT into team (division, TeamName, abrev) values ('NFC East', 'New York Giants', 'NYG');
-INSERT into team (division, TeamName, abrev) values ('AFC East', 'New York Jets', 'NYJ');
-INSERT into team (division, TeamName, abrev) values ('AFC South', 'Oakland Raiders', 'OAK');
-INSERT into team (division, TeamName, abrev) values ('NFC East', 'Philadelphia Eagles', 'PHI');
-INSERT into team (division, TeamName, abrev) values ('AFC North', 'Pittsburgh Steelers', 'PIT');
-INSERT into team (division, TeamName, abrev) values ('AFC West', 'San Diego Chargers', 'SD');
-INSERT into team (division, TeamName, abrev) values ('NFC West', 'San Francisco 49ers', 'SF');
-INSERT into team (division, TeamName, abrev) values ('NFC West', 'Seattle Seahawks', 'SEA');
-INSERT into team (division, TeamName, abrev) values ('NFC South', 'Tampa Bay Buccaneers', 'TB');
-INSERT into team (division, TeamName, abrev) values ('AFC South', 'Tennessee Titans', 'TEN');
-INSERT into team (division, TeamName, abrev) values ('NFC East', 'Washington Redskins', 'WAS');
+INSERT into team (division, TeamName, abrev, stadiumLocation) values ('NFC West', 'Arizona Cardinals', 'ARI', '33.5277,-112.262608');
+INSERT into team (division, TeamName, abrev, stadiumLocation) values ('NFC South', 'Atlanta Falcons', 'ATL', '33.757614,-84.400972');
+INSERT into team (division, TeamName, abrev, stadiumLocation) values ('AFC North', 'Baltimore Ravens', 'BAL', '39.277969,-76.622767');
+INSERT into team (division, TeamName, abrev, stadiumLocation) values ('AFC East', 'Buffalo Bills', 'BUF', '42.773739,-78.786978');
+INSERT into team (division, TeamName, abrev, stadiumLocation) values ('NFC South', 'Carolina Panthers', 'CAR', '35.225808,-80.852861');
+INSERT into team (division, TeamName, abrev, stadiumLocation) values ('NFC North', 'Chicago Bears', 'CHI', '41.862306,-87.616672');
+INSERT into team (division, TeamName, abrev, stadiumLocation) values ('AFC North', 'Cincinatti Bengals', 'CIN', '39.095442,-84.516039');
+INSERT into team (division, TeamName, abrev, stadiumLocation) values ('AFC North', 'Cleveland Browns', 'CLE', '41.506022,-81.699564');
+INSERT into team (division, TeamName, abrev, stadiumLocation) values ('NFC East', 'Dallas Cowboys', 'DAL', '32.747778,-97.092778');
+INSERT into team (division, TeamName, abrev, stadiumLocation) values ('AFC West', 'Denver Broncos', 'DEN', '39.743936,-105.020097');
+INSERT into team (division, TeamName, abrev, stadiumLocation) values ('NFC North', 'Detroit Lions', 'DET', '42.340156,-83.045808');
+INSERT into team (division, TeamName, abrev, stadiumLocation) values ('NFC North', 'Green Bay Packers', 'GB', '44.501306,-88.062167');
+INSERT into team (division, TeamName, abrev, stadiumLocation) values ('AFC South', 'Houston Texans', 'HOU', '29.684781,-95.410956');
+INSERT into team (division, TeamName, abrev, stadiumLocation) values ('AFC South', 'Indianapolis Colts', 'IND', '39.760056,-86.163806');
+INSERT into team (division, TeamName, abrev, stadiumLocation) values ('AFC South', 'Jacksonville Jaguars', 'JAX', '30.323925,-81.637356');
+INSERT into team (division, TeamName, abrev, stadiumLocation) values ('AFC West', 'Kansas City Chiefs', 'KC', '39.048914,-94.484039');
+INSERT into team (division, TeamName, abrev, stadiumLocation) values ('NFC West', 'Los Angeles Rams', 'LA', '34.0139,-118.2881');
+INSERT into team (division, TeamName, abrev, stadiumLocation) values ('AFC East', 'Miami Dolphins', 'MIA', '25.957919,-80.238842');
+INSERT into team (division, TeamName, abrev, stadiumLocation) values ('NFC North', 'Minnesota Vikings', 'MIN', '44.973881,-93.258094');
+INSERT into team (division, TeamName, abrev, stadiumLocation) values ('AFC East', 'New England Patriots', 'NE', '42.090925,-71.26435');
+INSERT into team (division, TeamName, abrev, stadiumLocation) values ('NFC South', 'New Orleans Saints', 'NO', '29.950931,-90.081364');
+INSERT into team (division, TeamName, abrev, stadiumLocation) values ('NFC East', 'New York Giants', 'NYG', '40.8128,-74.0742');
+INSERT into team (division, TeamName, abrev, stadiumLocation) values ('AFC East', 'New York Jets', 'NYJ', '40.8128,-74.0742');
+INSERT into team (division, TeamName, abrev, stadiumLocation) values ('AFC South', 'Oakland Raiders', 'OAK', '37.751411,-122.200889');
+INSERT into team (division, TeamName, abrev, stadiumLocation) values ('NFC East', 'Philadelphia Eagles', 'PHI', '39.900775,-75.167453');
+INSERT into team (division, TeamName, abrev, stadiumLocation) values ('AFC North', 'Pittsburgh Steelers', 'PIT', '40.446786,-80.015761');
+INSERT into team (division, TeamName, abrev, stadiumLocation) values ('AFC West', 'San Diego Chargers', 'SD', '32.783117,-117.119525');
+INSERT into team (division, TeamName, abrev, stadiumLocation) values ('NFC West', 'San Francisco 49ers', 'SF', '37.4032,-121.9698');
+INSERT into team (division, TeamName, abrev, stadiumLocation) values ('NFC West', 'Seattle Seahawks', 'SEA', '47.595153,-122.331625');
+INSERT into team (division, TeamName, abrev, stadiumLocation) values ('NFC South', 'Tampa Bay Buccaneers', 'TB', '27.975967,-82.50335');
+INSERT into team (division, TeamName, abrev, stadiumLocation) values ('AFC South', 'Tennessee Titans', 'TEN', '36.1669,-86.7698');
+INSERT into team (division, TeamName, abrev, stadiumLocation) values ('NFC East', 'Washington Redskins', 'WAS', '38.907697,-76.864517');
 
 INSERT into position (code,description) values ('QB','Quarterback');
 INSERT into position (code,description) values ('WR','Wide Reciever');
@@ -181,7 +208,7 @@ INSERT into offensive_player(teamId,name,position) values (5,'D.Anderson',1);
 INSERT into offensive_player(teamId,name,position) values (5,'J.Stewart',3);
 INSERT into offensive_player(teamId,name,position) values (5,'C.Artis-Payne',3);
 INSERT into offensive_player(teamId,name,position) values (5,'M.Tolbert',3);
-INSERT into offensive_player(teamId,name,position) values (5,'F.Whiiaker',3);
+INSERT into offensive_player(teamId,name,position) values (5,'F.Whitaker',3);
 INSERT into offensive_player(teamId,name,position) values (5,'K.Benjamin',2);
 INSERT into offensive_player(teamId,name,position) values (5,'T.Ginn',2);
 INSERT into offensive_player(teamId,name,position) values (5,'D.Funchess',2);
@@ -384,3 +411,31 @@ INSERT into offensive_player(teamId,name,position) values (32,'D.Jackson',2);
 INSERT into offensive_player(teamId,name,position) values (32,'P.Garcon',2);
 INSERT into offensive_player(teamId,name,position) values (32,'J.Reed',4);
 INSERT into offensive_player(teamId,name,position) values (32,'V.Davis',4);
+
+INSERT into fantasy_scoring(description,
+	reception,rush_yard,rec_yard,pass_yard,
+	rush_touchdown,rec_touchdown,pass_touchdown,
+	interception,fumble_lost,def_0_points,
+	def_6_points,def_13_points,def_17_points,
+	def_27_points,def_34_points,def_45_points,
+	def_over_45_points,def_fumble_rec,
+	def_interception,def_sack) values
+	('Standard',0.0,0.1,0.1,0.04,6,6,4,-2,-2,5,4,3,1,0,-1,-3,-5,2,2,1);
+INSERT into fantasy_scoring(description,
+	reception,rush_yard,rec_yard,pass_yard,
+	rush_touchdown,rec_touchdown,pass_touchdown,
+	interception,fumble_lost,def_0_points,
+	def_6_points,def_13_points,def_17_points,
+	def_27_points,def_34_points,def_45_points,
+	def_over_45_points,def_fumble_rec,
+	def_interception,def_sack) values
+	('Half PPR',0.5,0.1,0.1,0.04,6,6,4,-2,-2,5,4,3,1,0,-1,-3,-5,2,2,1);
+INSERT into fantasy_scoring(description,
+	reception,rush_yard,rec_yard,pass_yard,
+	rush_touchdown,rec_touchdown,pass_touchdown,
+	interception,fumble_lost,def_0_points,
+	def_6_points,def_13_points,def_17_points,
+	def_27_points,def_34_points,def_45_points,
+	def_over_45_points,def_fumble_rec,
+	def_interception,def_sack) values
+	('Full PPR',1.0,0.1,0.1,0.04,6,6,4,-2,-2,5,4,3,1,0,-1,-3,-5,2,2,1);

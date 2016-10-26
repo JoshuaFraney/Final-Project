@@ -8,6 +8,12 @@ mod.factory("teamService", ["$http","$q", function($http,$q) {
 		getTeam: function(code) {
 			return teamsMap[code];
 		},
+		getCode: function(teamName) {
+			for (team of teams) {
+				if (team.teamName == teamName)
+					return team.abrev;
+			}
+		},
 		getTeams: function() {
 			return teams;
 		},

@@ -21,7 +21,11 @@ public class TeamDAO implements ITeamDAO{
 	@Override
 	public List<Team> getAllTeams() {
 		String hql = "FROM Team as s ORDER BY s.id";
-		return (List<Team>)hibernateTemplate.find(hql);
+		List<Team> list = (List<Team>)hibernateTemplate.find(hql);
+		for(Team team : list) {
+			hibernateTemplate.initialize(team.roster);
+		}
+		return list;
 	}
 
 	@SuppressWarnings("unchecked")

@@ -41,6 +41,9 @@ public class Team {
 	@Column(name="ovrRank")
 	private Integer ovrRank;
 	
+	@Column(name="stadiumLocation")
+	private String stadiumLocation;
+	
 	@JsonIgnore
 	@OneToMany(mappedBy="team",fetch=FetchType.LAZY)
 	@Fetch(FetchMode.SUBSELECT)
@@ -80,6 +83,12 @@ public class Team {
 	public void addLoss() {this.losses++;}
 	public void addTie() {this.ties++;}
 	
+	public String getStadiumLocation() {
+		return stadiumLocation;
+	}
+	public void setStadiumLocation(String stadiumLocation) {
+		this.stadiumLocation = stadiumLocation;
+	}
 	public List<OffensivePlayer> getRoster() {
 		return roster;
 	}
@@ -193,7 +202,7 @@ public class Team {
 	}
 
 	public Team(String division, String teamName, String abrev, Integer wins, Integer losses,
-			Integer ties, Integer ovrRank) {
+			Integer ties, Integer ovrRank, String stadiumLocation) {
 		this.division = division;
 		this.teamName = teamName;
 		this.abrev = abrev;
@@ -201,6 +210,7 @@ public class Team {
 		this.losses = losses;
 		this.ties = ties;
 		this.ovrRank = ovrRank;
+		this.stadiumLocation = stadiumLocation;
 	}
 	
 	

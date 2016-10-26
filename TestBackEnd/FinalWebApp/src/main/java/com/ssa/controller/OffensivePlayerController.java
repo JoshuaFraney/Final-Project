@@ -1,6 +1,8 @@
 package com.ssa.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ssa.entity.OffensivePlayer;
+import com.ssa.entity.Team;
 import com.ssa.service.IOffensivePlayerService;
+import com.ssa.service.ITeamService;
 
 @CrossOrigin(origins = {"http://localhost:8081","null"})
 @RestController
@@ -23,10 +27,22 @@ public class OffensivePlayerController {
 	@Autowired
 	private IOffensivePlayerService offensivePlayerService;
 	
+	@Autowired ITeamService teamService;
+	
 	@RequestMapping(value="/offensivePlayer",method=RequestMethod.GET)
 	public ResponseEntity<List<OffensivePlayer>> getAllOffensivePlayers() {
 		List<OffensivePlayer> offensivePlayers = offensivePlayerService.getAllOffensivePlayers();
 		return new ResponseEntity<List<OffensivePlayer>>(offensivePlayers,HttpStatus.OK);
+	}
+	
+	@RequestMapping(value="/offensivePlayer/byTeam",method=RequestMethod.GET)
+	public ResponseEntity<Map<String,List<OffensivePlayer>>> getAllRosters() {
+		Map<String,List<OffensivePlayer>> map = new HashMap<String,List<OffensivePlayer>>();
+		List<Team> teams = teamService.getAllTeams();
+		for(Team team : teams) {
+			map.put(team.getAbrev(), team.getRoster());
+		}
+		return new ResponseEntity<Map<String,List<OffensivePlayer>>>(map,HttpStatus.OK);
 	}
 	
 	@RequestMapping(value="/offensivePlayer/team/{team}",method=RequestMethod.GET)
