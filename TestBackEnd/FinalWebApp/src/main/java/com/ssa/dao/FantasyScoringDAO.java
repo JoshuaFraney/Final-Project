@@ -26,7 +26,7 @@ public class FantasyScoringDAO implements IFantasyScoringDAO {
 	@SuppressWarnings("unchecked")
 	@Override
 	public FantasyScoring getFantasyScoringById(Integer id) {
-		String hql = "From FantasyScoring as f ORDER BY f.id";
+		String hql = "From FantasyScoring as f WHERE f.id = " + id;
 		return ((List<FantasyScoring>) hibernateTemplate.find(hql)).get(0);
 	}
 

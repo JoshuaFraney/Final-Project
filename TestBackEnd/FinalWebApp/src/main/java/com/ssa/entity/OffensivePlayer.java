@@ -12,7 +12,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="offensive_player")
-public class OffensivePlayer {
+public class OffensivePlayer implements Comparable<OffensivePlayer>{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -37,6 +37,26 @@ public class OffensivePlayer {
 	@OneToMany(mappedBy="player",fetch=FetchType.LAZY)
 	@Fetch(FetchMode.SUBSELECT)
 	public List<OffensiveStat> gameStats = new ArrayList<OffensiveStat>();
+
+	@Transient
+	private Double avgScore;
+	
+	@Override
+	public int compareTo(OffensivePlayer otherPlayer) {
+		if(otherPlayer.getAvgScore() > this.getAvgScore()) {
+			return 1;
+		} else {
+			return -1;
+		}
+	}
+	
+	public Double getAvgScore() {
+		return avgScore;
+	}
+
+	public void setAvgScore(Double avgScore) {
+		this.avgScore = avgScore;
+	}
 
 	public List<OffensiveStat> getGameStats() {
 		return gameStats;
@@ -91,6 +111,4 @@ public class OffensivePlayer {
 		this.position = position;
 		this.offRanking = offRanking;
 	}
-	
-	
 }

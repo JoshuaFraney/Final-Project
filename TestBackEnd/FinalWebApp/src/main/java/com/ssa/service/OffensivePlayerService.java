@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.ssa.dao.IOffensivePlayerDAO;
 import com.ssa.dao.ITeamDAO;
+import com.ssa.entity.FantasyScoring;
 import com.ssa.entity.OffensivePlayer;
 
 @Service
@@ -38,6 +39,11 @@ public class OffensivePlayerService implements IOffensivePlayerService {
 		return offensivePlayerDAO.getOffensivePlayerById(id);
 	}
 	
+	@Override
+	public OffensivePlayer getOffensivePlayerWithStats(Integer id) {
+		return offensivePlayerDAO.getOffensivePlayerWithStats(id);
+	}
+	
 	@Override 
 	public OffensivePlayer getOffensivePlayer(OffensivePlayer offensivePlayer) {
 		return offensivePlayerDAO.getOffensivePlayer(offensivePlayer);
@@ -56,6 +62,11 @@ public class OffensivePlayerService implements IOffensivePlayerService {
 	@Override
 	public void deleteOffensivePlayer(OffensivePlayer offensivePlayer) {
 		offensivePlayerDAO.deleteOffensivePlayer(offensivePlayer);
+	}
+	
+	@Override
+	public List<OffensivePlayer> updateRankings(FantasyScoring fantasyScoring) {
+		return offensivePlayerDAO.updateRankings(fantasyScoring);
 	}
 
 }

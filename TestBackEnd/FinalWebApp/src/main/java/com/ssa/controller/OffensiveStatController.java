@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ssa.entity.FantasyScoring;
 import com.ssa.entity.OffensiveStat;
+import com.ssa.service.IFantasyScoringService;
 import com.ssa.service.IOffensiveStatService;
 
 @CrossOrigin(origins = {"http://localhost:8081","null"})
@@ -22,6 +24,9 @@ public class OffensiveStatController {
 
 	@Autowired
 	private IOffensiveStatService offensiveStatService;
+	
+	@Autowired
+	private IFantasyScoringService fantasyScoringService;
 	
 	@RequestMapping(value="/offensiveStat",method=RequestMethod.GET)
 	public ResponseEntity<List<OffensiveStat>> getAllOffensiveStats() {
@@ -36,6 +41,13 @@ public class OffensiveStatController {
 			return new ResponseEntity<OffensiveStat>(offensiveStat, HttpStatus.OK);
 		else
 			return new ResponseEntity<OffensiveStat>(offensiveStat, HttpStatus.NOT_FOUND);
+	}
+	
+	@RequestMapping(value="/offensiveStat/id/{id}/scoring/{scoreId}",method=RequestMethod.GET)
+	public ResponseEntity<Double> getPointsScored(@PathVariable("id") Integer id,@PathVariable("scoreId") Integer scoreId) {
+		FantasyScoring fantasyScoring = fantasyScoringService.getFantasyScoringById(scoreId);
+		OffensiveStat offensiveStat = offensiveStatService.getOffensiveStatById(id);
+		return new ResponseEntity<Double>(fantasyScoring.getOffensiveScore(offensiveStat),HttpStatus.OK);
 	}
 
 	@RequestMapping(value="/offensiveStat/delete/{id}",method=RequestMethod.DELETE)

@@ -7,8 +7,9 @@ import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.ssa.entity.FantasyScoring;
 import com.ssa.entity.OffensivePlayer;
-import com.ssa.entity.Team;
+import com.ssa.entity.OffensiveStat;
 
 @Transactional
 @Repository
@@ -33,6 +34,13 @@ public class OffensivePlayerDAO implements IOffensivePlayerDAO{
 			return null;
 		}
 		return list.get(0);
+	}
+	
+	@Override
+	public OffensivePlayer getOffensivePlayerWithStats(Integer id) {
+		OffensivePlayer offensivePlayer = this.getOffensivePlayerById(id);
+		hibernateTemplate.initialize(offensivePlayer.gameStats);
+		return offensivePlayer;
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -72,5 +80,41 @@ public class OffensivePlayerDAO implements IOffensivePlayerDAO{
 	public void deleteOffensivePlayer(OffensivePlayer offensivePlayer) {
 		hibernateTemplate.delete(offensivePlayer);
 	}
+	
+	@Override
+	public List<OffensivePlayer> updateRankings(FantasyScoring fantasyScoring) {
+		List<OffensivePlayer> players = this.getAllWithStats();
+		//Key Integer is player.id
+		for (OffensivePlayer player : players) {
+			double points = 0.0;
+			for (OffensiveStat stats : player.getGameStats()) {
+				points += fantasyScoring.getOffensiveScore(stats);
+			}
+			points = points / player.getGameStats().size();
+			player.setAvgScore(this.round(points));
+		}
+		players.sort(null);
+		int i = 1;
+		for (OffensivePlayer p : players) {
+			p.setOffRanking(i++);
+			hibernateTemplate.update(p);
+		}
+		return players;
+	}
+	
+	private double round(double d) {
+		d *= 100;
+		d = ((double) (int)d);
+		return d/100;
+	}
 
+	@SuppressWarnings("unchecked")
+	private List<OffensivePlayer> getAllWithStats() {
+		String hql = "FROM OffensivePlayer as s ORDER BY s.id";
+		List<OffensivePlayer> list = (List<OffensivePlayer>)hibernateTemplate.find(hql);
+		for (OffensivePlayer player : list) {
+			hibernateTemplate.initialize(player.gameStats);
+		}
+		return list;
+	}
 }

@@ -55,6 +55,21 @@ public class OffensiveStat {
 	@Column(name="fumbles")
 	private Integer fumbles;
 
+	public void addStats(OffensiveStat stat) {
+		this.passAttempts += stat.passAttempts;
+		this.passCompletions += stat.passCompletions;
+		this.passYards += stat.passYards;
+		this.passTouchdowns += stat.passTouchdowns;
+		this.passInterceptions += stat.passInterceptions;
+		this.receptions += stat.receptions;
+		this.recYards += stat.recYards;
+		this.recTouchdowns += stat.recTouchdowns;
+		this.rushAttempts += stat.rushAttempts;
+		this.rushTouchdowns += stat.rushTouchdowns;
+		this.rushYards += stat.rushYards;
+		this.fumbles += stat.fumbles;
+	}
+	
 	public Team getOpponent() {
 		return opponent;
 	}
@@ -176,7 +191,6 @@ public class OffensiveStat {
 	public OffensiveStat(OffensivePlayer player, Integer passAttempts, Integer passCompletions, Integer passYards,
 			Integer passTouchdowns, Integer passInterceptions, Integer receptions, Integer recYards,
 			Integer recTouchdowns, Integer rushAttempts, Integer rushYards, Integer rushTouchdowns, Integer fumbles) {
-		super();
 		this.player = player;
 		this.passAttempts = passAttempts;
 		this.passCompletions = passCompletions;

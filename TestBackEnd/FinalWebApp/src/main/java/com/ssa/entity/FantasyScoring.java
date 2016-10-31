@@ -80,7 +80,7 @@ public class FantasyScoring {
 	private Integer defSack;
 
 	public Double getOffensiveScore(OffensiveStat stats) {
-		return (stats.getPassYards() * this.getPassYard()) + 
+		double score = (stats.getPassYards() * this.getPassYard()) + 
 				(stats.getPassTouchdowns() * this.getPassTouchdown()) +
 				(stats.getPassInterceptions() * this.getInterception()) + 
 				(stats.getReceptions() * this.getReception()) +
@@ -89,10 +89,14 @@ public class FantasyScoring {
 				(stats.getRushYards() * this.getRushYard()) +
 				(stats.getRushTouchdowns() * this.getRushTouchdown()) +
 				(stats.getFumbles() * this.getFumbleLost());
+		score = score * 100;
+		score = (double)((int)score);
+		score = score / 100;
+		return score;
 	}
 	
 	public Double getDefensiveScore(DefensiveStat stats) {
-		Double score = 0.0;
+		double score = 0.0;
 		if(stats.getPointsAllowed()==0) {score += this.getDef0Points();}
 		else if(stats.getPointsAllowed() <= 6) {score += this.getDef6Points();}
 		else if(stats.getPointsAllowed() <= 13) {score += this.getDef13Points();}
@@ -104,6 +108,9 @@ public class FantasyScoring {
 		score += stats.getFumbleRcvry() * this.getDefFumbleRec();
 		score += stats.getInterceptions() * this.getDefInterception();
 		score += stats.getSacks() * this.getDefSack();
+		score = score * 100;
+		score = (double)((int)score);
+		score = score / 100;
 		return score;
 	}
 	
