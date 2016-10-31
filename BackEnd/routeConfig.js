@@ -17,17 +17,16 @@ mod.config(['$routeProvider', function($routeProvider) {
 		controller: 'playerCtrl',
 		controllerAs: 'ctrl'
 
-	}).when('/players', {
-		templateUrl: 'views/dummy.view.html',
-		controller: 'PlayersCtrl',
-		controllerAs: 'ctrl'
+	}).when('/stadiums', {
+		templateUrl: 'views/stadium.view.html',
+	
 
 	}).when('/admin',{
 		templateUrl: 'views/admin.view.html',
 		controller: 'adminCtrl',
 		controllerAs: 'ctrl'
 
-	}).when('/playerlist',{
+	}).when('/playerlist/:team',{
 		templateUrl: 'views/playerlist.view.html',
 		controller: 'playerlistCtrl',
 		controllerAs: 'ctrl'
