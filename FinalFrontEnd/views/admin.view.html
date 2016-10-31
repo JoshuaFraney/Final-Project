@@ -1,0 +1,82 @@
+<div>
+<div id="local_db">
+	<div id="team-div" class="admin-table-div">
+		<h3>Team Table Info</h3>
+		<button>Populate Table</button>
+		<button>Clear Table</button>
+		<button>Collapse Table</button>
+		<table class="table table-bordered table-striped table-hover">
+			<tr ng-repeat="team in ctrl.teams">
+				<td ng-bind="'Id: ' + team.id"></td>
+				<td ng-bind="'Abrev: ' + team.abrev"></td>
+				<td ng-bind="'Name: ' + team.teamName"></td>
+				<td ng-bind="'Record: ' + team.wins + ' - ' + team.losses + ' - ' + team.ties"></td>
+			</tr>
+		</table>
+	</div>
+	<div id="matchup-div" class="admin-table-div">
+		<h3>Matchup Table Info</h3>
+		<button ng-click="ctrl.populateMatchups();">Populate Table</button>
+		<button>Clear Table</button>
+		<table class="table table-bordered table-striped table-hover">
+			<tr ng-repeat="matchup in ctrl.matchups">
+				<td ng-bind="'Id: ' + matchup.id"></td>
+				<td ng-bind="'Week: ' + matchup.week"></td>
+				<td ng-bind="matchup.awayTeam.teamName + ' @ ' + matchup.homeTeam.teamName"></td>
+			</tr>
+		</table>
+	</div>
+	<div id="game-result-div" class="admin-table-div">
+		<h3>Game Result Info</h3>
+		<button ng-click="ctrl.populateGameResults();">Populate Table</button>
+		<button>Clear Table</button>
+		<table class="table table-bordered table-striped table-hover">
+			<tr ng-repeat="gameResult in ctrl.gameResults">
+				<td ng-bind="'Id: ' + gameResult.id"></td>
+				<td ng-bind="'Matchup: ' + gameResult.matchup.awayTeam.teamName + ' @ ' + gameResult.matchup.homeTeam.teamName"></td>
+				<td ng-bind="'Winner: ' + gameResult.winTeam.teamName + ' - ' + gameResult.winScore"></td>
+				<td ng-bind="'Loser: ' + gameResult.loseTeam.teamName + ' - ' + gameResult.loseScore"></td>
+			</tr>
+		</table>
+	</div>
+	<div id="defensive-stat-div" class="admin-table-div">
+		Defensive Stat Info
+	</div>
+	<div id="offensive-player-div" class="admin-table-div">
+		<h3>Offensive Player Info</h3>
+		<table class="table table-bordered table-striped table-hover">
+			<tr ng-repeat="player in ctrl.players">
+				<td ng-show="player.vis" ng-bind="'Id: ' + player.id"></td>
+				<td ng-show="player.vis" ng-bind="'Name: ' + player.name"></td>
+				<td ng-show="player.vis" ng-bind="'Position: ' + player.position.description"></td>
+				<td ng-show="player.vis" ng-bind="'Team: ' + player.team.teamName"></td>
+				<td ng-show="player.vis"><button ng-click="ctrl.getStats(player);player.vis = false;">Get Stats</button></td>
+			</tr>
+		</table>
+	</div>
+	<div id="offensive-stat-div" class="admin-table-div">
+		Offensive Stat Info
+	</div>
+</div>
+<div id="api_data">
+	<div>
+		<table class="table table-bordered table-striped table-hover">
+			<tr ng-repeat="matchup in ctrl.updMatchups">
+				<td ng-show="matchup.vis" ng-bind="'Week: ' + matchup.week"></td>
+				<td ng-show="matchup.vis" ng-bind="matchup.awayTeam + ' @ ' + matchup.homeTeam"></td>
+				<td ng-show="matchup.vis" ><button ng-click="ctrl.addMatchup(matchup.homeTeam,matchup.awayTeam,matchup.week,matchup.final);matchup.vis=false;">Add Record</button></td>
+			</tr>
+		</table>
+	</div>
+	<div>
+		<table class="table table-bordered table-striped table-hover">
+			<tr ng-repeat="result in ctrl.updGameResults">
+				<td ng-show="result.vis" ng-bind="'Matchup: ' + result.winTeam + ' vs ' +result.loseTeam"></td>
+				<td ng-show="result.vis" ng-bind="result.winTeam + ': ' + result.winScore"></td>
+				<td ng-show="result.vis" ng-bind="result.loseTeam + ': ' + result.loseScore"></td>
+				<td ng-show="result.vis"><button ng-click="ctrl.addResult(result.matchup,result.winTeam,result.loseTeam,result.winScore,result.loseScore,result.tie);result.vis=false;">Add Record</button></td>
+			</tr>
+		</table>
+	</div>
+</div>
+</div>
