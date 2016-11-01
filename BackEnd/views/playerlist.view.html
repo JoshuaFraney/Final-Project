@@ -64,11 +64,50 @@
        				<tr ng-repeat="playr in ctrl.roster">
        					<th>{{playr.name}}</th>
                 <th>{{playr.position.description}}</th>
-       				<tr>
+        			<tr>
 
        			</table>
 
        		<div>
+
+            <div id="stadium-container" >
+                  <iframe
+                    width="450"
+                    height="250"
+                    frameborder="0" style="border:0"
+                    src="https://www.google.com/maps/embed/v1/streetview?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&location="{{ctrl[0].team.stadiumLocation}} allowfullscreen>
+                  </iframe>
+                  <iframe
+                    width="450"
+                    height="250"
+                    frameborder="0" style="border:0"
+                    src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&center="{{ctrl[0].team.stadiumLocation}}"&zoom=16&maptype=satellite" allowfullscreen>
+                  </iframe>
+     </div>
+
+          <script>
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+function filterFunction() {
+    var input, filter, ul, li, a, i;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    div = document.getElementById("myDropdown");
+    a = div.getElementsByTagName("a");
+    for (i = 0; i < a.length; i++) {
+        if (a[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+            a[i].style.display = "";
+        } else {
+            a[i].style.display = "none";
+        }
+    }
+}
+</script>
+
 
     <div id="playerlistFoot" class="footer">
 
