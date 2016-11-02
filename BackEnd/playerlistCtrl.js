@@ -1,6 +1,7 @@
 mod.controller("playerlistCtrl", ["$http","$routeParams","teamService","offensivePlayerService","positionService", "helper","token", function($http,$routeParams,teamService,offensivePlayerService,positionService,helper,token) {
 	var self=this;
 	self.teams = null;
+	self.teamName = null;
 	self.team = $routeParams.team;
 
 	positionService.refresh().then(function(resp) {

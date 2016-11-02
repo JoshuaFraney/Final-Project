@@ -9,9 +9,9 @@
         	</div>
  -->
 
-        <div class="dropdown">
+        <div id="teamDropdown" class="dropdown">
 
-          <button onclick="myFunction()" class="dropbtn">Select A Team</button>
+          <button id="dropButton" onclick="myFunction()" class="dropbtn">Select A Team</button>
 
           <div id="myDropdown" class="dropdown-content">
 
@@ -69,7 +69,7 @@
        			</table>
 
        		<div id="stadium-container">
-                  <div id="stadium-ravens">
+                  <div id="stadium-ravens" ng-show="ctrl.team == 'BAL'">
                       <iframe
                         width="450"
                         height="250"
@@ -84,7 +84,7 @@
                       </iframe>
                       </div>
 
-                      <div id="stadium-jaguars">
+                      <div id="stadium-jaguars" ng-show="ctrl.team == 'JAX'">
                       <iframe
                         width="450"
                         height="250"
@@ -99,7 +99,7 @@
                       </iframe>
                       </div>
 
-                      <div id="stadium-saints">
+                      <div id="stadium-saints" ng-show="ctrl.team == 'NO'">
                       <iframe
                         width="450"
                         height="250"
@@ -114,7 +114,7 @@
                       </iframe>
                       </div>
 
-                      <div id="stadium-bears">
+                      <div id="stadium-bears" ng-show="ctrl.team == 'CHI'">
                       <iframe
                         width="450"
                         height="250"
@@ -129,7 +129,7 @@
                       </iframe>
                       </div>
 
-                      <div id="stadium-redskins">
+                      <div id="stadium-redskins" ng-show="ctrl.team == 'WAS'">
                       <iframe
                         width="450"
                         height="250"
@@ -144,7 +144,7 @@
                       </iframe>
                       </div>
 
-                      <div id="stadium-eagles">
+                      <div id="stadium-eagles" ng-show="ctrl.team == 'PHI'">
                       <iframe
                         width="450"
                         height="250"
@@ -159,7 +159,7 @@
                       </iframe>
                       </div>
 
-                      <div id="stadium-chargers">
+                      <div id="stadium-chargers" ng-show="ctrl.team == 'SD'">
                       <iframe
                         width="450"
                         height="250"
@@ -174,7 +174,7 @@
                       </iframe>
                       </div>
 
-                      <div id="stadium-bills">
+                      <div id="stadium-bills"ng-show="ctrl.team == 'BUF'" >
                       <iframe
                         width="450"
                         height="250"
@@ -189,7 +189,7 @@
                       </iframe>
                       </div>
 
-                      <div id="stadium-49ers">
+                      <div id="stadium-49ers" ng-show="ctrl.team == 'SF'">
                       <iframe
                         width="450"
                         height="250"
@@ -204,7 +204,7 @@
                       </iframe>
                       </div>
 
-                      <div id="stadium-chiefs">
+                      <div id="stadium-chiefs" ng-show="ctrl.team == 'KC'">
                       <iframe
                         width="450"
                         height="250"
@@ -219,7 +219,7 @@
                       </iframe>
                       </div>
 
-                      <div id="stadium-packers">
+                      <div id="stadium-packers" ng-show="ctrl.team == 'GB'">
                       <iframe
                         width="450"
                         height="250"
@@ -234,7 +234,7 @@
                       </iframe>
                       </div>
 
-                      <div id="stadium-giants">
+                      <div id="stadium-giants" ng-show="ctrl.team == 'NYG'">
                       <iframe
                         width="450"
                         height="250"
@@ -249,7 +249,7 @@
                       </iframe>
                       </div>
 
-                      <div id="stadium-jets">
+                      <div id="stadium-jets" ng-show="ctrl.team == 'NYJ'">
                       <iframe
                         width="450"
                         height="250"
@@ -264,7 +264,7 @@
                       </iframe>
                       </div>
 
-                      <div id="stadium-dolphins">
+                      <div id="stadium-dolphins" ng-show="ctrl.team == 'MIA'">
                       <iframe
                         width="450"
                         height="250"
@@ -279,7 +279,7 @@
                       </iframe>
                       </div>
 
-                      <div id="stadium-bengals">
+                      <div id="stadium-bengals" ng-show="ctrl.team == 'CIN'">
                       <iframe
                         width="450"
                         height="250"
@@ -294,7 +294,7 @@
                       </iframe>
                       </div>
 
-                      <div id="stadium-broncos">
+                      <div id="stadium-broncos" ng-show="ctrl.team == 'DEN'">
                       <iframe
                         width="450"
                         height="250"
@@ -309,7 +309,7 @@
                       </iframe>
                       </div>
 
-                      <div id="stadium-cowboys">
+                      <div id="stadium-cowboys" ng-show="ctrl.team == 'DAL'">
                       <iframe
                         width="450"
                         height="250"
@@ -324,7 +324,7 @@
                       </iframe>
                       </div>
 
-                      <div id="stadium-seahawks">
+                      <div id="stadium-seahawks" ng-show="ctrl.team == 'SEA'">
                       <iframe
                         width="450"
                         height="250"
@@ -339,7 +339,7 @@
                       </iframe>
                       </div>
 
-                      <div id="stadium-buccaneers">
+                      <div id="stadium-buccaneers" ng-show="ctrl.team == 'TB'">
                       <iframe
                         width="450"
                         height="250"
@@ -354,7 +354,7 @@
                       </iframe>
                       </div>
 
-                      <div id="stadium-texans">
+                      <div id="stadium-texans" ng-show="ctrl.team == 'HOU'">
                       <iframe
                         width="450"
                         height="250"
@@ -369,7 +369,7 @@
                       </iframe>
                       </div>
 
-                      <div id="stadium-lions">
+                      <div id="stadium-lions" ng-show="ctrl.team == 'DET'">
                       <iframe
                         width="450"
                         height="250"
@@ -384,7 +384,7 @@
                       </iframe>
                       </div>
 
-                      <div id="stadium-vikings">
+                      <div id="stadium-vikings" ng-show="ctrl.team == 'MIN'">
                       <iframe
                         width="450"
                         height="250"
@@ -399,7 +399,7 @@
                       </iframe>
                       </div>
 
-                      <div id="stadium-panthers">
+                      <div id="stadium-panthers"ng-show="ctrl.team == 'CAR'">
                       <iframe
                         width="450"
                         height="250"
@@ -414,7 +414,7 @@
                       </iframe>
                       </div>
 
-                      <div id="stadium-patriots">
+                      <div id="stadium-patriots" ng-show="ctrl.team == 'NE'">
                       <iframe
                         width="450"
                         height="250"
@@ -429,7 +429,7 @@
                       </iframe>
                       </div>             
 
-                      <div id="stadium-cardinals">
+                      <div id="stadium-cardinals" ng-show="ctrl.team == 'ARI'">
                       <iframe
                         width="450"
                         height="250"
@@ -444,7 +444,7 @@
                       </iframe>
                       </div>
 
-                      <div id="stadium-raiders">
+                      <div id="stadium-raiders" ng-show="ctrl.team == 'OAK'">
                       <iframe
                         width="450"
                         height="250"
@@ -459,7 +459,7 @@
                       </iframe>
                       </div>
 
-                      <div id="stadium-falcons">
+                      <div id="stadium-falcons" ng-show="ctrl.team == 'ATL'">
                       <iframe
                         width="450"
                         height="250"
@@ -474,7 +474,7 @@
                       </iframe>
                       </div>
 
-                      <div id="stadium-squeelers">
+                      <div id="stadium-steelers"ng-show="ctrl.team == 'PIT'">
                       <iframe
                         width="450"
                         height="250"
@@ -489,7 +489,7 @@
                       </iframe>
                       </div>
 
-                      <div id="stadium-titans">
+                      <div id="stadium-titans" ng-show="ctrl.team == 'TEN'">
                       <iframe
                         width="450"
                         height="250"
@@ -504,7 +504,7 @@
                       </iframe>
                       </div>
 
-                      <div id="stadium-browns">
+                      <div id="stadium-browns" ng-show="ctrl.team == 'CLE'">
                       <iframe
                         width="450"
                         height="250"
@@ -519,7 +519,7 @@
                       </iframe>
                       </div>
 
-                      <div id="stadium-colts">
+                      <div id="stadium-colts" ng-show="ctrl.team == 'IND'">
                       <iframe
                         width="450"
                         height="250"
@@ -534,7 +534,7 @@
                       </iframe>
                       </div>
 
-                      <div id="stadium-ravens">
+                     <!--  <div id="stadium-ravens">
                       <iframe
                         width="450"
                         height="250"
@@ -547,7 +547,7 @@
                         frameborder="0" style="border:0"
                         src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&center=39.277969,-76.622767&zoom=16&maptype=satellite" allowfullscreen>
                       </iframe>
-                      </div>
+                      </div> -->
           </div>
 
           <script>
