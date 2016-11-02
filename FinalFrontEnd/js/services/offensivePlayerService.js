@@ -37,6 +37,38 @@ mod.factory("offensivePlayerService", ["$http","$q","teamService","positionServi
 			})
 			return deferred.promise;
 		},
+		getSeasonStats: function(id) {
+			var deferred = $q.defer();
+			
+			$http({
+				url: "http://localhost:8080/offensivePlayer/stats/season/playerId/" + id,
+				method: "GET"
+			}).success(function(resp) {
+				deferred.resolve(resp);
+			})
+			return deferred.promise;
+		},
+		getAvgScore: function(id,scoreId) {
+			var deferred = $q.defer();
+			
+			$http({
+				url: "http://localhost:8080/offensivePlayer/scores/playerId/"+id+"/scoring/"+scoreId,
+				method: "GET"
+			}).success(function(resp) {
+				var avg = 0.0;
+				if(resp.length==0) {
+					deferred.resolve(0);
+				} else {
+					for(score of resp) {
+						avg += score;
+					}
+					avg = avg / resp.length;
+					avg = parseFloat(avg.toFixed(2));
+					deferred.resolve(avg);
+				}
+			})
+			return deferred.promise;
+		},
 		refresh: function() {
 			var deferred = $q.defer();
 			

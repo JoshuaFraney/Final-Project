@@ -7,7 +7,7 @@
 				<th>Score</th>
 			</tr>
 			<tr ng-repeat="game in ctrl.games">
-				<td ng-show="game.week==ctrl.week"><a ng-click="ctrl.showPlayers(game.id)"><span>{{game.away}} @ {{game.home}}</span></a></td>
+				<td ng-show="game.week==ctrl.week"><a ng-click="ctrl.showPlayers(game.id)"><span>{{ctrl.getTeam(game.away).teamName}} @ {{ctrl.getTeam(game.home).teamName}}</span></a></td>
 				<td ng-show="game.week==ctrl.week"><span>{{game.away_score}} - {{game.home_score}}</span></td>
 			</tr>
 		</table>

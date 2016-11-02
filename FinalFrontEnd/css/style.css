@@ -56,9 +56,9 @@ a, a:hover, a:active{ outline:0px !important}
 body {
 	background:#fff;
 	font-family: 'Open Sans', sans-serif;
-	font-size:14px;
+	font-size:18px;
 	font-weight:normal;
-	color:#888888;
+	color:black;
 	margin:0;
 }
 h2{
@@ -353,8 +353,17 @@ color: #fff;
 .Portfolio-box{
 	text-align:center;
 	margin-bottom:30px;
-	height:350px;
-	width:350px;
+	height:500px;
+	width:285px;
+	overflow:hidden;
+	float:left;
+	padding:0;
+}
+.Portfolio-box-double{
+	text-align:center;
+	margin-bottom:30px;
+	height:500px;
+	width:570px;
 	overflow:hidden;
 	float:left;
 	padding:0;
@@ -377,6 +386,23 @@ color: #fff;
 }
 img {
    max-width:100%;
+}
+.styled-select {
+	border: 2px;
+	font-size: 14px;
+	height: 29px;
+	padding: 5px;
+	width: 175px;
+	font-weight: bold;
+	background-color: #DCDCDC;
+}
+option {
+	font-weight: bold;
+}
+.semi-square {
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 5px;
 }
 
 /* no transition on .isotope container */
@@ -868,4 +894,8 @@ border: 2px solid #fff;
 .delay-12s { 
 	animation-delay: 1.2s; 
 	-webkit-animation-delay: 1.2s; 
+}
+
+.player-list {
+	list-style: none
 }

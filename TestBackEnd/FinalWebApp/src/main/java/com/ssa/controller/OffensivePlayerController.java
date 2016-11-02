@@ -1,6 +1,7 @@
 package com.ssa.controller;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -150,6 +151,7 @@ public class OffensivePlayerController {
 			@PathVariable("qbs") Integer qbs,@PathVariable("wrs") Integer wrs,
 			@PathVariable("rbs") Integer rbs,@PathVariable("tes") Integer tes) {
 		List<OffensivePlayer> list = offensivePlayerService.updateRankings(fantasyScoringService.getFantasyScoringById(id));
+		if(!top) {Collections.reverse(list);}
 		Map<String,List<OffensivePlayer>> returnMap = new HashMap<String,List<OffensivePlayer>>();
 		returnMap.put("QB",new ArrayList<OffensivePlayer>());
 		returnMap.put("WR",new ArrayList<OffensivePlayer>());

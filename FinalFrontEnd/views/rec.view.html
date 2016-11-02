@@ -1,4 +1,5 @@
 <div>
+<!--
 	<table>
 		<tr>
 			<th>QB</th>
@@ -25,4 +26,25 @@
 			<td ng-bind="te.name"></td>
 		</tr>
 	</table>
+-->
+	<div class="Portfolio-box">
+		<ul class="player-list"><h3>QB's</h3>
+			<li ng-repeat="qb in ctrl.players['QB']" ng-bind="qb.name"></li>
+		</ul>
+	</div>
+	<div class="Portfolio-box">
+		<ul class="player-list"><h3>WR's</h3>
+			<li ng-repeat="wr in ctrl.players['WR']" ng-bind="wr.name"></li>
+		</ul>
+	</div>
+	<div class="Portfolio-box">
+		<ul class="player-list"><h3>RB's</h3>
+			<li ng-repeat="rb in ctrl.players['RB']" ng-bind="rb.name"></li>
+		</ul>
+	</div>
+	<div class="Portfolio-box">
+		<ul class="player-list"><h3>TE's</h3>
+			<li ng-repeat="te in ctrl.players['TE']" ng-bind="te.name"></li>
+		</ul>
+	</div>
 </div>

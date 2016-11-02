@@ -48,9 +48,11 @@
 <script src="js/services/offensivePlayerService.js" type="text/javascript"></script>
 <script src="js/services/testMatchupService.js" type="text/javascript"></script>
 <script src="js/factory/helper.js" type="text/javascript"></script>
+<script src="js/controller/playerCompCtrl.js" type="text/javascript"></script>
 <script src="js/controller/playerCtrl.js" type="text/javascript"></script>
 <script src="js/controller/weekCtrl.js" type="text/javascript"></script>
 <script src="js/controller/adminCtrl.js" type="text/javascript"></script>
+<script src="js/controller/playerlistCtrl.js" type="text/javascript"></script>
 <script src="js/config/routeConfig.js" type="text/javascript"></script>
 
 <!-- =======================================================
@@ -80,7 +82,7 @@
         <ul class="main-nav">
         	<li><a href="#header">Home</a></li>
             <li><a href="#service">Services</a></li>
-            <li><a href="#Portfolio">Portfolio</a></li>
+            <li><a href="#Portfolio">Tools</a></li>
             <li class="small-logo"><a href="#header"><img src="img/helmet_logo_small.png" alt=""></a></li>
             <li><a href="#client">Clients</a></li>
             <li><a href="#team">Team</a></li>
@@ -146,47 +148,45 @@
 
 
 <section class="main-section alabaster"><!--main-section alabaster-start-->
-<!--
 	<div class="container">
     	<div class="row">
 			<figure class="col-lg-5 col-sm-4 wow fadeInLeft">
-            	<img  src="img/iphone.png" alt="">
+            	<img  src="img/server.jpg" alt="">
             </figure>
         	<div class="col-lg-7 col-sm-8 featured-work">
-            	<h2>featured work</h2>
-            	<P class="padding-b">Proin iaculis purus consequat sem cure digni ssim. Donec porttitora entum suscipit aenean rhoncus posuere odio in tincidunt. Proin iaculis purus consequat sem cure digni ssim. Donec porttitora entum suscipit.</P>
+            	<h2>how it works</h2>
+            	<P class="padding-b">A peek at the magic that happens behind the scenes</P>
             	<div class="featured-box">
                 	<div class="featured-box-col1 wow fadeInRight delay-02s">
-                    	<i class="fa-magic"></i>
+                    	<i class="fa fa-server" aria-hidden="true"></i>
                     </div>	
                 	<div class="featured-box-col2 wow fadeInRight delay-02s">
-                        <h3>magic of theme development</h3>
-                        <p>Proin iaculis purus consequat sem cure digni ssim. Donec porttitora entum suscipit aenean rhoncus posuere odio in tincidunt. </p>
+                        <h3>tons of nfl football statistics and data</h3>
+                        <p>8 Custom built API's to pull data from more than 60 unique endpoints.</p>
                     </div>    
                 </div>
                 <div class="featured-box">
                 	<div class="featured-box-col1 wow fadeInRight delay-04s">
-                    	<i class="fa-gift"></i>
+                    	<i class="fa fa-clock-o" aria-hidden="true"></i>
                     </div>	
                 	<div class="featured-box-col2 wow fadeInRight delay-04s">
-                        <h3>neatly packaged</h3>
-                        <p>Proin iaculis purus consequat sem cure digni ssim. Donec porttitora entum suscipit aenean rhoncus posuere odio in tincidunt. </p>
+                        <h3>real time updates</h3>
+                        <p>Game and player stats update in real time.</p>
                     </div>    
                 </div>
                 <div class="featured-box">
                 	<div class="featured-box-col1 wow fadeInRight delay-06s">
-                    	<i class="fa-dashboard"></i>
+                    	<i class="fa fa-cogs" aria-hidden="true"></i>
                     </div>	
                 	<div class="featured-box-col2 wow fadeInRight delay-06s">
-                        <h3>SEO optimized</h3>
-                        <p>Proin iaculis purus consequat sem cure digni ssim. Donec porttitora entum suscipit aenean rhoncus posuere odio in tincidunt. </p>
+                        <h3>complex algorithms</h3>
+                        <p>Complex algorithms break down all the data behind the scenes!</p>
                     </div>    
                 </div>
                 <a class="Learn-More" href="#">Learn More</a>
             </div>
         </div>
 	</div>
--->
 </section><!--main-section alabaster-end-->
 
 
@@ -199,8 +199,8 @@
         	<li><a href="#/week" class="current" ng-click="appl.route('week')">Final Game Stats</a></li>
             <li><a href="#/rec" ng-click="appl.route('rec')">Recommended Players</a></li>
             <li><a href="#/notrec" ng-click="appl.route('notrec')">Not Recommended Players</a></li>
-            <li><a href="#/matchups" ng-click="appl.route('matchups')">Upcomming Matchups</a></li>
-            <li><a href="#/comp" ng-click="appl.route('comp')">Player Comparison Tool</a></li>
+            <li><a href="#/roster" ng-click="appl.route('roster')">Team Rosters</a></li>
+            <li><a href="#/compare" ng-click="appl.route('compare')">Player Comparison Tool</a></li>
         </ul>
 	</div>
 	<div ng-view></div>
@@ -260,15 +260,14 @@
 		<b class="quote-right wow fadeInDown delay-03"><i class="fa-quote-right"></i></b>
     	<div class="row">
         	<div class="col-lg-12">
-            	<p class="client-part-haead wow fadeInDown delay-05">It was a pleasure to work with the guys at Knight Studio. They made sure 
-we were well fed and drunk all the time!</p>
+            	<p class="client-part-haead wow fadeInDown delay-05">It was a pleasure to work with these guys! Their project is fantastic! I'm amazed at what they were able to accomplish in such a short amount of time!</p>
             </div>
         </div>
     	<ul class="client wow fadeIn delay-05s">
         	<li><a href="#">
-            	<img src="img/client-pic1.jpg" alt="">
-                <h3>James Bond</h3>
-                <span>License To Drink Inc.</span>
+            	<img src="img/client-pic2.jpg" alt="">
+                <h3>Greg Doud</h3>
+                <span>The Iron Yard</span>
             </a></li>
         </ul>
     </div>

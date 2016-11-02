@@ -1,0 +1,166 @@
+<div>
+	<div class="Portfolio-box">
+		<p><label for="select-conf1">Select Conference: </label><br>
+			<select id="select-conf1" class="styled-select semi-square" ng-model="ctrl.conf1" ng-change="ctrl.hideStats(1);ctrl.player1=''" bs-selectbox>
+				<option value="AFC East">AFC East</option>
+				<option value="AFC North">AFC North</option>
+				<option value="AFC South">AFC South</option>
+				<option value="AFC West">AFC West</option>
+				<option value="NFC East">NFC East</option>
+				<option value="NFC North">NFC North</option>
+				<option value="NFC South">NFC South</option>
+				<option value="NFC West">NFC West</option>
+			</select>
+		</p>
+		<p><label for="select-team1">Select Team: </label><br>
+			<select id="select-team1" class="styled-select semi-square" ng-model="ctrl.team1" ng-change="ctrl.hideStats(1);" bs-selectbox>
+				<option ng-repeat="team in ctrl.teams | filter:ctrl.conf1" value="{{team.teamName}}">{{team.teamName}}</option>	
+			</select>
+		</p>
+		<p><label for="select-player1">Select Player: </label><br>
+			<select id="select-player1" class="styled-select semi-square" ng-model="ctrl.player1" ng-change="ctrl.showPlayer(ctrl.player1,1)" bs-selectbox>
+				<option ng-repeat="player in ctrl.players | filter:ctrl.team1" value="{{player.id}}">{{player.name}}</option>
+			</select>
+		</p>
+		<p>
+		<span><h3 ng-show="ctrl.start.vis">Start: </h3></span>
+		<i class="fa fa-check" aria-hidden="true" ng-show="ctrl.start['1']" style="font-size:40px;color:green"></i>
+		<i class="fa fa-times" aria-hidden="true" ng-show="ctrl.start['2']" style="font-size:40px;color:red"></i>
+		</p>
+	</div>
+	<div class="Portfolio-box">
+    <table id="vertical-1" ng-show="ctrl.playerStats['1'].vis">
+            <caption><h3>Stats</h3></caption>
+            <tr>
+                <th>Passing: </th>
+                <td ng-bind="ctrl.playerStats['1'].passCompletions + '/' + ctrl.playerStats['1'].passAttempts"></td>
+            </tr>
+            <tr>
+                <th>Pass Yards: </th>
+                <td ng-bind="ctrl.playerStats['1'].passYards"></td>
+            </tr>
+            <tr>
+                <th>Pass Touchdowns: </th>
+                <td ng-bind="ctrl.playerStats['1'].passTouchdowns"></td>
+            </tr>
+            <tr>
+                <th>Interceptions: </th>
+                <td ng-bind="ctrl.playerStats['1'].passInterceptions"></td>
+            </tr>
+			<tr>
+                <th>Receptions: </th>
+                <td ng-bind="ctrl.playerStats['1'].receptions"></td>
+            </tr>
+            <tr>
+                <th>Recieving Yards: </th>
+                <td ng-bind="ctrl.playerStats['1'].recYards"></td>
+            </tr>
+            <tr>
+                <th>Recieving Touchdowns: </th>
+                <td ng-bind="ctrl.playerStats['1'].recTouchdowns"></td>
+            </tr>
+			<tr>
+                <th>Rushes: </th>
+                <td ng-bind="ctrl.playerStats['1'].rushAttempts"></td>
+            </tr>
+            <tr>
+                <th>Rushing Yards: </th>
+                <td ng-bind="ctrl.playerStats['1'].rushYards"></td>
+            </tr>
+            <tr>
+                <th>Rushing Touchdowns: </th>
+                <td ng-bind="ctrl.playerStats['1'].rushTouchdowns"></td>
+            </tr>
+			<tr>
+                <th>Fumbles: </th>
+                <td ng-bind="ctrl.playerStats['1'].fumbles"></td>
+            </tr>
+			<tr>
+				<th>Avg Fantasy Score:</th>
+				<th ng-bind="ctrl.playerStats['1'].avgScore"></th>
+			</tr>
+        </table>
+	</div>
+	<div class="Portfolio-box">
+    <table id="vertical-1" ng-show="ctrl.playerStats['2'].vis">
+            <caption><h3>Stats</h3></caption>
+            <tr>
+                <th>Passing: </th>
+                <td ng-bind="ctrl.playerStats['2'].passCompletions + '/' + ctrl.playerStats['2'].passAttempts"></td>
+            </tr>
+            <tr>
+                <th>Pass Yards: </th>
+                <td ng-bind="ctrl.playerStats['2'].passYards"></td>
+            </tr>
+            <tr>
+                <th>Pass Touchdowns: </th>
+                <td ng-bind="ctrl.playerStats['2'].passTouchdowns"></td>
+            </tr>
+            <tr>
+                <th>Interceptions: </th>
+                <td ng-bind="ctrl.playerStats['2'].passInterceptions"></td>
+            </tr>
+			<tr>
+                <th>Receptions: </th>
+                <td ng-bind="ctrl.playerStats['2'].receptions"></td>
+            </tr>
+            <tr>
+                <th>Recieving Yards: </th>
+                <td ng-bind="ctrl.playerStats['2'].recYards"></td>
+            </tr>
+            <tr>
+                <th>Recieving Touchdowns: </th>
+                <td ng-bind="ctrl.playerStats['2'].recTouchdowns"></td>
+            </tr>
+			<tr>
+                <th>Rushes: </th>
+                <td ng-bind="ctrl.playerStats['2'].rushAttempts"></td>
+            </tr>
+            <tr>
+                <th>Rushing Yards: </th>
+                <td ng-bind="ctrl.playerStats['2'].rushYards"></td>
+            </tr>
+            <tr>
+                <th>Rushing Touchdowns: </th>
+                <td ng-bind="ctrl.playerStats['2'].rushTouchdowns"></td>
+            </tr>
+			<tr>
+                <th>Fumbles: </th>
+                <td ng-bind="ctrl.playerStats['2'].fumbles"></td>
+            </tr>
+			<tr>
+				<th>Avg Fantasy Score:</th>
+				<th ng-bind="ctrl.playerStats['2'].avgScore"></th>
+			</tr>
+        </table>		
+	</div>
+	<div class="Portfolio-box">
+		<p><label for="select-conf2">Select Conference: </label><br>
+			<select id="select-conf2" class="styled-select semi-square" ng-model="ctrl.conf2" ng-change="ctrl.hideStats(2);ctrl.player2=''" bs-selectbox>
+				<option value="AFC East">AFC East</option>
+				<option value="AFC North">AFC North</option>
+				<option value="AFC South">AFC South</option>
+				<option value="AFC West">AFC West</option>
+				<option value="NFC East">NFC East</option>
+				<option value="NFC North">NFC North</option>
+				<option value="NFC South">NFC South</option>
+				<option value="NFC West">NFC West</option>
+			</select>
+		</p>
+		<p><label for="select-team2">Select Team: </label><br>
+			<select id="select-team2" class="styled-select semi-square" ng-model="ctrl.team2" ng-change="ctrl.hideStats(2);" bs-selectbox>
+				<option ng-repeat="team in ctrl.teams | filter:ctrl.conf2" value="{{team.teamName}}">{{team.teamName}}</option>	
+			</select>
+		</p>
+		<p><label for="select-player2">Select Player: </label><br>
+			<select id="select-player2" class="styled-select semi-square" ng-model="ctrl.player2" ng-change="ctrl.showPlayer(ctrl.player2,2)" bs-selectbox>
+				<option ng-repeat="player in ctrl.players | filter:ctrl.team2" value="{{player.id}}">{{player.name}}</option>
+			</select>
+		</p>
+		<p>
+		<span><h3 ng-show="ctrl.start.vis">Start: </h3></span>
+		<i class="fa fa-check" aria-hidden="true" ng-show="ctrl.start['2']" style="font-size:40px;color:green"></i>
+		<i class="fa fa-times" aria-hidden="true" ng-show="ctrl.start['1']" style="font-size:40px;color:red"></i>
+		</p>		
+	</div>
+</div>

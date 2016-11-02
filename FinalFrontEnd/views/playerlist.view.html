@@ -1,0 +1,527 @@
+    <div class="playerlist-container">
+      
+       	<h1 id="team-list">Teams</h1>
+
+        <!-- 	<div id="teamlist" ng-repeat="team in ctrl.teamName">
+        		
+        			<input type="radio" name="radTeamName">{{team.teamName}}
+        				<br/>
+        	</div>
+ -->
+<div class="Portfolio-box">
+	<p><label for="select-conf">Select Conference: </label><br>
+		<select id="select-conf" class="styled-select semi-square" ng-model="ctrl.conf" ng-change="ctrl.team=''" bs-selectbox>
+			<option value="AFC East">AFC East</option>
+			<option value="AFC North">AFC North</option>
+			<option value="AFC South">AFC South</option>
+			<option value="AFC West">AFC West</option>
+			<option value="NFC East">NFC East</option>
+			<option value="NFC North">NFC North</option>
+			<option value="NFC South">NFC South</option>
+			<option value="NFC West">NFC West</option>
+		</select>
+	</p>
+	<p><label for="select-team">Select Team: </label><br>
+		<select id="select-team" class="styled-select semi-square" ng-model="ctrl.team" ng-change="ctrl.updateRoster(ctrl.team);" bs-selectbox>
+			<option ng-repeat="team in ctrl.teams | filter:ctrl.conf" value="{{team.abrev}}">{{team.teamName}}</option>	
+		</select>
+	</p>
+</div>
+
+       		<div id="playrlist" class="Portfolio-box">
+       			<table id="playertable" class="table table-striped table-bordered table-condensed table-hover w3-card-16 w3-table-all">
+
+       				<tr>
+       					<th>Player Name</th>
+       					<th>Position</th>
+       				</tr>
+       				
+       				<tr ng-repeat="playr in ctrl.roster">
+       					<td>{{playr.name}}</td>
+                <td>{{playr.position.description}}</td>
+        			<tr>
+
+       			</table>
+			</div>
+
+       		<div id="stadium-container" class="Portfolio-box-double">
+                  <div id="stadium-ravens" ng-show="ctrl.team == 'BAL'">
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/streetview?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&location=39.277969,-76.622767" allowfullscreen>
+                      </iframe>
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&center=39.277969,-76.622767&zoom=16&maptype=satellite" allowfullscreen>
+                      </iframe>
+                      </div>
+
+                      <div id="stadium-jaguars" ng-show="ctrl.team == 'JAX'">
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/streetview?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&location=30.323925,-81.637356" allowfullscreen>
+                      </iframe>
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&center=30.323925,-81.637356&zoom=16&maptype=satellite" allowfullscreen>
+                      </iframe>
+                      </div>
+
+                      <div id="stadium-saints" ng-show="ctrl.team == 'NO'">
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/streetview?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&location=29.950931,-90.081364" allowfullscreen>
+                      </iframe>
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&center=29.950931,-90.081364&zoom=16&maptype=satellite" allowfullscreen>
+                      </iframe>
+                      </div>
+
+                      <div id="stadium-bears" ng-show="ctrl.team == 'CHI'">
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/streetview?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&location=41.862306,-87.616672" allowfullscreen>
+                      </iframe>
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&center=41.862306,-87.616672&zoom=16&maptype=satellite" allowfullscreen>
+                      </iframe>
+                      </div>
+
+                      <div id="stadium-redskins" ng-show="ctrl.team == 'WAS'">
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/streetview?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&location=38.907697,-76.864517" allowfullscreen>
+                      </iframe>
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&center=38.907697,-76.864517&zoom=16&maptype=satellite" allowfullscreen>
+                      </iframe>
+                      </div>
+
+                      <div id="stadium-eagles" ng-show="ctrl.team == 'PHI'">
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/streetview?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&location=39.900775,-75.167453" allowfullscreen>
+                      </iframe>
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&center=39.900775,-75.167453&zoom=16&maptype=satellite" allowfullscreen>
+                      </iframe>
+                      </div>
+
+                      <div id="stadium-chargers" ng-show="ctrl.team == 'SD'">
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/streetview?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&location=32.783117,-117.119525" allowfullscreen>
+                      </iframe>
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&center=32.783117,-117.119525&zoom=16&maptype=satellite" allowfullscreen>
+                      </iframe>
+                      </div>
+
+                      <div id="stadium-bills"ng-show="ctrl.team == 'BUF'" >
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/streetview?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&location=42.773739,-78.786978" allowfullscreen>
+                      </iframe>
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&center=42.773739,-78.786978&zoom=16&maptype=satellite" allowfullscreen>
+                      </iframe>
+                      </div>
+
+                      <div id="stadium-49ers" ng-show="ctrl.team == 'SF'">
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/streetview?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&location=37.4032,-121.9698" allowfullscreen>
+                      </iframe>
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&center=37.4032,-121.9698&zoom=16&maptype=satellite" allowfullscreen>
+                      </iframe>
+                      </div>
+
+                      <div id="stadium-chiefs" ng-show="ctrl.team == 'KC'">
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/streetview?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&location=39.048914,-94.484039" allowfullscreen>
+                      </iframe>
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&center=39.048914,-94.484039&zoom=16&maptype=satellite" allowfullscreen>
+                      </iframe>
+                      </div>
+
+                      <div id="stadium-packers" ng-show="ctrl.team == 'GB'">
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/streetview?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&location=44.501306,-88.062167" allowfullscreen>
+                      </iframe>
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&center=44.501306,-88.062167&zoom=16&maptype=satellite" allowfullscreen>
+                      </iframe>
+                      </div>
+
+                      <div id="stadium-giants" ng-show="ctrl.team == 'NYG'">
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/streetview?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&location=40.8128,-74.0742" allowfullscreen>
+                      </iframe>
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&center=40.8128,-74.0742&zoom=16&maptype=satellite" allowfullscreen>
+                      </iframe>
+                      </div>
+
+                      <div id="stadium-jets" ng-show="ctrl.team == 'NYJ'">
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/streetview?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&location=40.8128,-74.0742" allowfullscreen>
+                      </iframe>
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&center=40.8128,-74.0742&zoom=16&maptype=satellite" allowfullscreen>
+                      </iframe>
+                      </div>
+
+                      <div id="stadium-dolphins" ng-show="ctrl.team == 'MIA'">
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/streetview?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&location=25.957919,-80.238842" allowfullscreen>
+                      </iframe>
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&center=25.957919,-80.238842&zoom=16&maptype=satellite" allowfullscreen>
+                      </iframe>
+                      </div>
+
+                      <div id="stadium-bengals" ng-show="ctrl.team == 'CIN'">
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/streetview?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&location=39.095442,-84.516039" allowfullscreen>
+                      </iframe>
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&center=39.095442,-84.516039&zoom=16&maptype=satellite" allowfullscreen>
+                      </iframe>
+                      </div>
+
+                      <div id="stadium-broncos" ng-show="ctrl.team == 'DEN'">
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/streetview?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&location=39.743936,-105.020097" allowfullscreen>
+                      </iframe>
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&center=39.743936,-105.020097&zoom=16&maptype=satellite" allowfullscreen>
+                      </iframe>
+                      </div>
+
+                      <div id="stadium-cowboys" ng-show="ctrl.team == 'DAL'">
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/streetview?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&location=32.747778,-97.092778" allowfullscreen>
+                      </iframe>
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&center=32.747778,-97.092778&zoom=16&maptype=satellite" allowfullscreen>
+                      </iframe>
+                      </div>
+
+                      <div id="stadium-seahawks" ng-show="ctrl.team == 'SEA'">
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/streetview?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&location=47.595153,-122.331625" allowfullscreen>
+                      </iframe>
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&center=47.595153,-122.331625&zoom=16&maptype=satellite" allowfullscreen>
+                      </iframe>
+                      </div>
+
+                      <div id="stadium-buccaneers" ng-show="ctrl.team == 'TB'">
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/streetview?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&location=27.975967,-82.50335" allowfullscreen>
+                      </iframe>
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&center=27.975967,-82.50335&zoom=16&maptype=satellite" allowfullscreen>
+                      </iframe>
+                      </div>
+
+                      <div id="stadium-texans" ng-show="ctrl.team == 'HOU'">
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/streetview?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&location=29.684781,-95.410956" allowfullscreen>
+                      </iframe>
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&center=29.684781,-95.410956&zoom=16&maptype=satellite" allowfullscreen>
+                      </iframe>
+                      </div>
+
+                      <div id="stadium-lions" ng-show="ctrl.team == 'DET'">
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/streetview?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&location=42.340156,-83.045808" allowfullscreen>
+                      </iframe>
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&center=42.340156,-83.045808&zoom=16&maptype=satellite" allowfullscreen>
+                      </iframe>
+                      </div>
+
+                      <div id="stadium-vikings" ng-show="ctrl.team == 'MIN'">
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/streetview?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&location=44.973881,-93.258094" allowfullscreen>
+                      </iframe>
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&center=44.973881,-93.258094&zoom=16&maptype=satellite" allowfullscreen>
+                      </iframe>
+                      </div>
+
+                      <div id="stadium-panthers"ng-show="ctrl.team == 'CAR'">
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/streetview?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&location=35.225808,-80.852861" allowfullscreen>
+                      </iframe>
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&center=35.225808,-80.852861&zoom=16&maptype=satellite" allowfullscreen>
+                      </iframe>
+                      </div>
+
+                      <div id="stadium-patriots" ng-show="ctrl.team == 'NE'">
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/streetview?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&location=42.090925,-71.26435" allowfullscreen>
+                      </iframe>
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&center=42.090925,-71.26435&zoom=16&maptype=satellite" allowfullscreen>
+                      </iframe>
+                      </div>             
+
+                      <div id="stadium-cardinals" ng-show="ctrl.team == 'ARI'">
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/streetview?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&location=33.5277,-112.262608" allowfullscreen>
+                      </iframe>
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&center=39.277969,-76.622767&zoom=16&maptype=satellite" allowfullscreen>
+                      </iframe>
+                      </div>
+
+                      <div id="stadium-raiders" ng-show="ctrl.team == 'OAK'">
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/streetview?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&location=37.751411,-122.200889" allowfullscreen>
+                      </iframe>
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&center=37.751411,-122.200889&zoom=16&maptype=satellite" allowfullscreen>
+                      </iframe>
+                      </div>
+
+                      <div id="stadium-falcons" ng-show="ctrl.team == 'ATL'">
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/streetview?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&location=33.757614,-84.400972" allowfullscreen>
+                      </iframe>
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&center=33.757614,-84.400972&zoom=16&maptype=satellite" allowfullscreen>
+                      </iframe>
+                      </div>
+
+                      <div id="stadium-steelers"ng-show="ctrl.team == 'PIT'">
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/streetview?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&location=40.446786,-80.015761" allowfullscreen>
+                      </iframe>
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&center=40.446786,-80.015761&zoom=16&maptype=satellite" allowfullscreen>
+                      </iframe>
+                      </div>
+
+                      <div id="stadium-titans" ng-show="ctrl.team == 'TEN'">
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/streetview?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&location=36.1669,-86.7698" allowfullscreen>
+                      </iframe>
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&center=36.1669,-86.7698&zoom=16&maptype=satellite" allowfullscreen>
+                      </iframe>
+                      </div>
+
+                      <div id="stadium-browns" ng-show="ctrl.team == 'CLE'">
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/streetview?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&location=41.506022,-81.699564" allowfullscreen>
+                      </iframe>
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&center=41.506022,-81.699564&zoom=16&maptype=satellite" allowfullscreen>
+                      </iframe>
+                      </div>
+
+                      <div id="stadium-colts" ng-show="ctrl.team == 'IND'">
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/streetview?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&location=39.750056,-86.163806" allowfullscreen>
+                      </iframe>
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&center=39.750056,-86.163806&zoom=16&maptype=satellite" allowfullscreen>
+                      </iframe>
+                      </div>
+
+                     <!--  <div id="stadium-ravens">
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/streetview?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&location=39.277969,-76.622767" allowfullscreen>
+                      </iframe>
+                      <iframe
+                        width="500"
+                        height="325"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDbOMeklgU0RuoqbpYNIjsnInOyOMNX3xo&center=39.277969,-76.622767&zoom=16&maptype=satellite" allowfullscreen>
+                      </iframe>
+                      </div> -->
+          </div>

@@ -156,7 +156,7 @@ INSERT into team (division, TeamName, abrev, stadiumLocation) values ('AFC East'
 INSERT into team (division, TeamName, abrev, stadiumLocation) values ('NFC South', 'New Orleans Saints', 'NO', '29.950931,-90.081364');
 INSERT into team (division, TeamName, abrev, stadiumLocation) values ('NFC East', 'New York Giants', 'NYG', '40.8128,-74.0742');
 INSERT into team (division, TeamName, abrev, stadiumLocation) values ('AFC East', 'New York Jets', 'NYJ', '40.8128,-74.0742');
-INSERT into team (division, TeamName, abrev, stadiumLocation) values ('AFC South', 'Oakland Raiders', 'OAK', '37.751411,-122.200889');
+INSERT into team (division, TeamName, abrev, stadiumLocation) values ('AFC West', 'Oakland Raiders', 'OAK', '37.751411,-122.200889');
 INSERT into team (division, TeamName, abrev, stadiumLocation) values ('NFC East', 'Philadelphia Eagles', 'PHI', '39.900775,-75.167453');
 INSERT into team (division, TeamName, abrev, stadiumLocation) values ('AFC North', 'Pittsburgh Steelers', 'PIT', '40.446786,-80.015761');
 INSERT into team (division, TeamName, abrev, stadiumLocation) values ('AFC West', 'San Diego Chargers', 'SD', '32.783117,-117.119525');
