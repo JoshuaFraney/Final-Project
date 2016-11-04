@@ -24,6 +24,10 @@ mod.controller("playerCompCtrl",["teamService","offensivePlayerService", functio
 					self.start.vis = true;
 					self.getStart(self.playerStats['1'].avgScore,self.playerStats['2'].avgScore);
 				}
+				var currPlayer = offensivePlayerService.getPlayer(player);
+				self.playerStats[number].name = currPlayer.name;
+				self.playerStats[number].team = currPlayer.team.teamName;
+				self.playerStats[number].pos = currPlayer.position.code;
 			});
 		});
 	}

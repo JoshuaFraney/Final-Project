@@ -1,7 +1,7 @@
 mod.factory("token", function() {
 	var self = this;
-	self.token = "***********";
-	self.api_key = "**************";
+	self.token = "";
+	self.api_key = "";
 	
 	return {
 		getToken: function() {

@@ -1,16 +1,21 @@
 <div>
-	<input id="curr_week" type="number" ng-model="ctrl.week" min="1" max="17"></input>
 	<div id="games-table-div">
-		<table class="table table-bordered">
+		<table align="center" style="width:65%;">
 			<tr>
-				<th>Game</th>
+				<td><input id="curr_week" style="align:center;" type="number" ng-model="ctrl.week" min="1" max="17"></input></td>
+			</tr>
+			<tr>
+				<th>Away</th>
+				<th></th>
+				<th>Home</th>
 				<th>Score</th>
 			</tr>
 			<tr ng-repeat="game in ctrl.games">
-				<td ng-show="game.week==ctrl.week"><a ng-click="ctrl.showPlayers(game.id)"><span>{{ctrl.getTeam(game.away).teamName}} @ {{ctrl.getTeam(game.home).teamName}}</span></a></td>
+				<td ng-show="game.week==ctrl.week"><a ng-click="ctrl.showPlayers(game.id)"><span>{{ctrl.getTeam(game.away).teamName}}</span></a></td>
+				<td ng-show="game.week==ctrl.week"><a ng-click="ctrl.showPlayers(game.id)"><span> @ </span></a></td>
+				<td ng-show="game.week==ctrl.week"><a ng-click="ctrl.showPlayers(game.id)"><span>{{ctrl.getTeam(game.home).teamName}}</span></a></td>
 				<td ng-show="game.week==ctrl.week"><span>{{game.away_score}} - {{game.home_score}}</span></td>
 			</tr>
 		</table>
 	</div>
-	
 </div>

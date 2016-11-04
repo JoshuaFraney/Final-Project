@@ -1,5 +1,7 @@
 <div>
 	<a class="link animated fadeInUp delay-1s" href="#/week" ng-click="ctrl.saveWeek();">Return</a>
+	<div>
+	<div class="Portfolio-box-double">
 	<p ng-bind="ctrl.teams.home"></p>
 	<table class="table table-bordered" id="home-players">
 		<tr>
@@ -45,7 +47,8 @@
 			<td ng-bind="homeRec.long"></td>
 		</tr>
 	</table>
-	
+	</div>
+	<div class="Portfolio-box-double">
 	<p ng-bind="ctrl.teams.away"></p>
 	<table class="table table-bordered" id="away-players">
 		<tr>
@@ -91,4 +94,6 @@
 			<td ng-bind="awayRec.long"></td>
 		</tr>
 	</table>
+	</div>
+	</div>
 </div>

@@ -14,7 +14,7 @@ mod.config(['$routeProvider', function($routeProvider) {
 		controller: 'recCtrl',
 		controllerAs: 'ctrl'
 	}).when('/notrec', {
-		templateUrl: 'views/rec.view.html',
+		templateUrl: 'views/notrec.view.html',
 		controller: 'notrecCtrl',
 		controllerAs: 'ctrl'
 	}).when('/compare', {

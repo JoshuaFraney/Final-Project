@@ -78,7 +78,7 @@ mod.factory("offensivePlayerService", ["$http","$q","teamService","positionServi
 			}).success(function(resp) {
 				players = resp;
 				for(var player of players) {
-					playersMap[player.team.abrev + player.name] = player;
+					playersMap[player.id] = player;
 					player.vis = true;
 				}
 				deferred.resolve(resp);
